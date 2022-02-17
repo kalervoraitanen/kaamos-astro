@@ -1,0 +1,13 @@
+{
+  "name": "kaamos-astro",
+  "version": "v1.0.0",
+  "description": "Highly Search Engine Optimized Starter Blog for Astro.",
+  "private": false,
+  "scripts": {
+    "start": "astro dev",
+    "build": "astro build"
+  },
+  "devDependencies": {
+    "astro": "^0.22.1"
+  }
+}

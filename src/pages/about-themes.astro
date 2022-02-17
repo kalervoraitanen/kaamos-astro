@@ -1,0 +1,16 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+
+let title = 'About Themes';
+let description = 'Details about Kaamos Astro Demo Themes.';
+let permalink = 'https://my-site.dev/about-themes';
+---
+
+<PageLayout title={title} description={description} permalink={permalink} canonicalURL={Astro.request.canonicalURL.href}>
+    <h1>About Theme</h1>
+    <p>Kaamos Astro is a lightweight, modern starter blog for <a href="https://astro.build" title="Astro website">Astro.</a></p>
+    <p>It is built using the best Search Engine Optimization (SEO) practices and is even optimized with Schema.org microdata especially for blogs.
+    This means the search engines understand even better your site and can result in more detailed Search Engine visibility.</p>
+    <p>Kaamos Astro demo themes are developed with mobile-first approach and are pleasure to view on devices of all sizes. They also include fuild typography that adapt nicely to any screen sizes.</p>
+    <p>Note: Demo themes are tested to work on modern browsers that support CSS Grid and Flexbox. There is no guarantee that the themes will work on older browsers.</p> 
+</PageLayout>

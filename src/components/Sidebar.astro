@@ -1,0 +1,73 @@
+---
+// Component Imports
+import {generateCategoryData} from '../utils/helpers.js'
+import { getPosts } from '../utils/posts.js'
+
+// Constants
+const allPosts = await getPosts()
+const sortedPosts = allPosts.sort((a, b) => new Date(b.publishDate) - new Date(a.publishDate));
+const allYearsSet = new Set();
+const allCategoriesUnique = new Set();
+const postsByYear = [];
+
+// Loop through all posts and fetch all post years and unique categories
+allPosts.map(post => {
+    let dateUTC = Date.parse(post.publishDate);
+    let date = new Date(dateUTC);
+    let dateYear = date.getFullYear(date);
+    allYearsSet.add(dateYear);
+
+    post.categories && post.categories.map(category => {
+        allCategoriesUnique.add(category);
+    })    
+})
+
+// Create an array of all unique categories
+const allCategoriesData = generateCategoryData(allCategoriesUnique);
+
+// Loop through all the post years list
+for (let year of allYearsSet) {
+    postsByYear.push('<details class="site-sidebar__archives"><summary class="site-sidebar__archives__year">' + year.valueOf() + '</summary><ul>');
+
+    // Filter all the posts by year
+    const filteredPosts = sortedPosts.filter((post) => {
+        let dateUTC = Date.parse(post.publishDate);
+        let date = new Date(dateUTC);
+        let dateYear = date.getFullYear(date);
+
+        // If the post year equals the current year in the loop return true
+        if (dateYear === year) {
+            return true;
+        }
+
+    // Loop through all the filtered posts and create an unordered list with links to single posts.        
+    }).map(post => {
+        postsByYear.push(
+            '<li class="site-sidebar__archives__post">' +
+            '<a href="' + post.url + '" title="Read more about ' + post.title + '">' + post.title + '</a>' + 
+            '<span class="site-sidebar__archives__post-date">' + 
+            post.publishDate + 
+            '</span>' +
+            '</li>'
+        );
+    })
+
+    postsByYear.push('</ul></details>');
+}
+
+---
+<aside class="site-sidebar">
+    <section class="site-sidebar__section categories">
+        <h2 class="site-sidebar__heading">Categories:</h2>
+        <ul class="site-sidebar__categories">
+            {allCategoriesData.map(category => (
+            <li><a href={`/blog/categories/${category.slug}`}>{category.name}</a></li>
+            ))}
+        </ul>
+    </section>
+    <section class="site-sidebar__section archives">    
+        <h2 class="site-sidebar__heading">Archives:</h2>
+        {postsByYear}
+    </section>   
+</aside>
+

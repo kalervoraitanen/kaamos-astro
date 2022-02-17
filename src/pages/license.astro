@@ -1,0 +1,16 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+
+let title = 'License';
+let description = 'Info about Kaamos Astro license.';
+let permalink = 'https://my-site.dev/license';
+---
+
+<PageLayout title={title} description={description} permalink={permalink} canonicalURL={Astro.request.canonicalURL.href}>
+
+<h1>License</h1>
+<h2>Totally free!</h2>
+<p>Kaamos Astro is under the <a href="http://sam.zoy.org/wtfpl/" title="Link to WTFPL license">WTFPL</a> so do what ever you want with it.
+However you are forbidden to hold me liable for anything, or claim that what you do with it is made by me.</p>
+
+</PageLayout>

@@ -1,0 +1,39 @@
+---
+// Imports
+import BaseLayout from '../../../layouts/BaseLayout.astro'
+import {generateCategoryData} from '../../../utils/helpers.js'
+
+// Constants
+const allPosts = Astro.fetchContent('../*.md');
+const allCategoriesUnique = new Set();
+
+// Loop through all posts and fetch all unique categories
+allPosts.map(post => {
+    post.categories && post.categories.map(category => {
+        allCategoriesUnique.add(category);
+    })
+})
+
+const allCategoriesData = generateCategoryData(allCategoriesUnique);
+const title = "All categories:";
+
+// Variables
+let description = 'Listing of all post categories.';
+let permalink = 'https://my-site.dev/blog/';
+---
+
+<!DOCTYPE html>
+<BaseLayout title={title} description={description} permalink={permalink} canonicalURL={Astro.request.canonicalURL.href}>
+    <article class="post">
+        <header class="post__header">
+            <h1 class="post__title">{title}</h1>
+        </header>    
+        <section class="post__content">
+            <ul>
+            {allCategoriesData.map(category => (
+                <li><a href={`/blog/categories/${category.slug}`}>{category.name}</a></li>
+            ))}
+            </ul>
+        </section>
+    </article>
+</BaseLayout>

@@ -1,0 +1,33 @@
+---
+// Imports
+import {generateCategoryData} from '../utils/helpers.js'
+
+// Exports
+export interface Props {
+  post: any;
+}
+
+// Variables
+const {post} = Astro.props;
+const allCategoriesData = generateCategoryData(post.categories);
+let postTitleLink = 'Read more about ' + post.title;
+---
+
+<article class="post-preview" itemscope itemprop="blogPost" itemtype="http://schema.org/BlogPosting">
+    <section class="post-preview__header">
+      <h2 class="post__title" itemprop="headline"><a href={post.url} title={postTitleLink} rel="bookmark" itemprop="url">{post.title}</a></h2>
+      <span class="screen-reader-text">Posted </span><time class="post__date" itemprop="datePublished">{post.publishDate}</time>
+      { post.heroImage && <img class="post__feature-img" loading="lazy" src={post.heroImage} alt={post.alt} itemprop="image" />}
+    </section>
+    <section class="post-preview__content" itemprop="articleBody">
+      <p>{post.description}</p>
+      <a href={post.url} title={postTitleLink} class="read-more">Read more<span class="screen-reader-text"> about {post.title}</span></a>
+    </section>
+    <section class="post-preview__footer">
+      <ul class="post__footer-categories">
+        {allCategoriesData.map(category => (
+          <li><a href={`/blog/categories/${category.slug}`}>{category.name}</a></li>
+        ))}
+      </ul>
+    </section>    
+</article>

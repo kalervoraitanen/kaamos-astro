@@ -1,0 +1,7 @@
+---
+const { page } = Astro.props
+---
+<nav class="pagination" aria-label="Posts navigation">
+    {page.url.prev && <a href={page.url.prev} title="Previous Posts">&larr; Newer posts</a>}
+    {page.url.next && <a href={page.url.next} title="Next Posts">Older posts &rarr;</a>}
+</nav>

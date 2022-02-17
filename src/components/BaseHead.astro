@@ -1,0 +1,68 @@
+---
+export interface Props {
+  title: string;
+  description: string;
+  permalink: string;
+  publishDate: string;
+  ogImageUrl: string;
+  canonicalURL?: string;
+}
+
+import site from "../data/site.js";
+
+const { title, description, permalink, publishDate, ogImageUrl, canonicalURL } = Astro.props;
+let fullTitle = title + ' | ' + site.title;
+let fullDesc = description + ' | ' + site.description;
+
+if ( title === '' ) {
+  fullTitle = site.title;
+}
+if ( description === '' ) {
+  fullDesc = site.description;
+}
+---
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+
+<!-- Here you can set your favicon. Remove these comments to use it.
+<link rel="icon" href="/favicon.svg">
+-->
+
+<!-- CSS stylesheets for the blog. You can remove these if you want. -->
+<link rel="stylesheet" id='normalize-css' href="/style/normalize.css" media='all'/>
+<link rel="stylesheet" id='kaamos-global-css' href="/style/global.css" media='all' />
+<link rel="stylesheet" id='kaamos-demo1-css' href="/style/demo1.css" media='all'/>
+<!-- End of CSS stylesheets. -->
+
+<!-- Primary Meta Tags -->
+<title>{fullTitle}</title>
+<meta name="title" content={fullTitle} />
+<meta name="description" content={fullDesc} />
+<!-- Sitemap -->
+<link rel="sitemap" href="/sitemap.xml">
+<!-- RSS -->
+<link rel="alternate" type="application/rss+xml" title={`${site.name} Blog`} href={`${site.url}/feed/blog.xml`}/>
+<!-- Canonical -->
+<link rel="canonical" href={canonicalURL}>
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content={canonicalURL || site.url} />
+<meta property="og:title" content={fullTitle} />
+<meta property="og:description" content={fullDesc} />
+<meta property="og:image" content={ogImageUrl ? `${site.url}${ogImageUrl}` : `${site.url}/assets/img/social.jpg`} />
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:url" content={canonicalURL || site.url} />
+<meta property="twitter:title" content={fullTitle} />
+<meta property="twitter:description" content={fullDesc} />
+<meta property="twitter:image" content={ogImageUrl ? `${site.url}${ogImageUrl}` : `${site.url}/assets/img/social.jpg`} />
+
+<!-- Google Fonts. You can remove these if you want. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Arimo&family=Merriweather:ital,wght@0,400;0,700;1,400;1,700&family=Playball&display=swap" rel="stylesheet">
+
+<!-- JavaScripts for demos. You can remove these if you want -->
+<script src='/script/demo1.js?ver=1.0' id='kaamos-demo1-js'></script>

@@ -1,0 +1,41 @@
+---
+// Imports
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Sidebar from '../components/Sidebar.astro';
+import Footer from '../components/Footer.astro';
+import {generateCategoryData} from '../utils/helpers.js'
+
+// Constants
+const allPosts = Astro.fetchContent('../pages/blog/*.md');
+const allCategoriesUnique = new Set();
+
+allPosts.map(post => {
+    post.categories && post.categories.map(category => {
+        allCategoriesUnique.add(category);
+    })
+})
+const allCategoriesData = generateCategoryData(allCategoriesUnique);
+const {title, description, permalink, canonicalURL } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <BaseHead title={title} description={description} permalink={permalink} canonicalURL={canonicalURL} />
+  </head>
+
+  <body class="page" itemscope itemtype="http://schema.org/WebPage">
+    <Header />
+
+    <main itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/Blog" tabindex=-1>
+        <slot/>
+    </main>
+
+    <Sidebar />
+      
+    <Footer />
+  </body>
+
+</html>
+

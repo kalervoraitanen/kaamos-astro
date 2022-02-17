@@ -1,0 +1,21 @@
+---
+import Navigation from '../components/Navigation.astro';
+---
+
+<header class="site-header" itemscope itemtype="http://schema.org/WPHeader">
+    <a href="/" class="site-header__logo-link" rel="home" itemprop="url">
+        <img class="site-header__logo-img" src="/assets/kaamos-logo.png" alt="Kaamos Astro logo" itemprop="image" />
+    </a>
+    <h1 class="site-header__title screen-reader-text" itemprop="headline">
+        <a href="/" rel="home" itemprop="url">Kaamos</a>
+    </h1>
+    <p class="site-header__desc" itemprop="alternativeHeadline">
+        Highly Search Engine Optimized Starter Blog for Astro
+    </p>
+
+    <div class="nav-btn-wrap">
+        <button class="nav-button" aria-controls="primary-menu-list" aria-expanded="false" aria-haspopup="true">Menu</button>
+    </div>
+
+    <Navigation />
+</header>

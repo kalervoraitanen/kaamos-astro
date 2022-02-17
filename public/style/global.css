@@ -1,0 +1,222 @@
+/*
+Stylesheet: Kaamos Astro - Global base styles
+Author: Kalervo Raitanen
+Author site: http://www.kalervoraitanen.com
+Description: Global base styles for Kaamos Astro Starter Blog to be used in projects.
+Version: 1.0
+*/
+
+
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+# 1. VARIABLES
+# 2. GENERAL STYLES
+# 3. TYPOGRAPHY
+    # 3.1. Typography defaults
+	# 3.2. Fonts
+	# 3.3. Paragraphs and headings typography settings
+# 4. BUTTON DEFAULTS
+--------------------------------------------------------------*/
+
+
+/******************************************************************
+1. VARIABLES
+******************************************************************/
+
+:root {
+    /* Some examples of variables to use */
+
+    /* # Colors 
+    --black:     #111111;
+    --pure-black: #000000;
+    --white:     #eeeeee;
+    --gray:      #333333;
+    --red:       red;
+    */
+
+    /* # Fonts
+    --font-heading: 'Lora', Georgia, serif;;
+    --font_main: 'Open Sans', Arial, sans-serif;
+    --font_button: "Arimo", Arial, sans-serif;
+    */ 
+
+    /* # Z-Indexes. These will help to layer site elements more easily. */
+    --layer1: 1;
+    --layer2: 2;
+    --layer3: 3;
+    --layer4: 4;
+    --layer5: 5;
+    --layer6: 6;
+    --layer7: 7;
+    --layer8: 8;
+    --layer9: 9;
+    --layer10: 10;    
+}
+
+
+/******************************************************************
+2. GENERAL STYLES
+******************************************************************/
+
+* {
+	box-sizing: border-box;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+img {
+    height: auto;
+	max-width: 100%;
+}
+
+figure {
+	display: block;
+	height: auto;	
+	margin: 0;
+	max-width: 100%;
+}
+
+
+/* # 2.1. Accessibility styles */
+.screen-reader-text {
+  border: 0;
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  word-wrap: normal !important;
+}
+
+.screen-reader-text:focus {
+    background-color: #eee;
+    clip: auto !important;
+    clip-path: none;
+    color: #444;
+    display: block;
+    font-size: 1em;
+    height: auto;
+    left: 5px;
+    line-height: normal;
+    padding: 15px 23px 14px;
+    text-decoration: none;
+    top: 5px;
+    width: auto;
+    z-index: 100000;
+}
+
+/* Skip to main content link */
+.skip-link:focus,
+.skip-link:focus-visible {
+    background-color: #555555;
+    border-radius: 3px;
+    clip: auto !important;
+    -webkit-clip-path: none;
+    clip-path: none;
+    color: #eeeeee;
+    display: block;
+    font-weight: 700;
+    height: auto;
+    left: 5px;
+    line-height: normal;
+    padding: 15px 23px 14px;
+    text-decoration: none;
+    top: 5px;
+    width: auto;
+    z-index: 100000;
+}
+
+a.skip-link:focus {
+	outline: 2px solid blue;
+}
+
+
+/******************************************************************
+3. TYPOGRAPHY
+******************************************************************/
+
+/* # 3.1. Typography defaults */
+body {
+    /* Enable OpenType features to enhance the legibility and appearance of text */
+    font-feature-settings: "kern", "liga", "clig", "calt";
+    font-kerning: normal;
+    font-variant-ligatures: common-ligatures contextual;
+
+    font-size: 100%;
+
+  /*
+    -webkit-font-smoothing: antialiased; // Smooth the font
+    -moz-osx-font-smoothing: grayscale;  // Makes light text on dark backgrounds look lighter on Firefox
+  */
+}
+
+
+/* # 3.2. Fonts  */
+/* Import Google Fonts 
+@import url('https://fonts.googleapis.com/css2?family=Lora&family=Open+Sans:ital,wght@0,400;0,700;1,400&family=Arimo&display=swap');
+*/
+
+/* 
+To embed local fonts uncomment the below section and use this syntax.
+Remember to check the path for the font files.
+*/
+/*  
+@font-face {
+    font-family: 'Font Name';
+    src: url('font-name.eot');
+    src: url('font-name.eot?#iefix') format('embedded-opentype'),
+           url('font-name.woff') format('woff'),
+           url('font-name.ttf') format('truetype'),
+           url('font-name.svg#font-name') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+*/
+
+
+/* # 3.3. Paragraphs and headings typography settings */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  /* Emphasize legibility to produce the most legible text */
+  text-rendering: optimizelegibility;
+
+  /* Break long words to prevent overflowing */
+  word-break: break-word;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+
+/*********************
+4. BUTTON DEFAULTS
+*********************/
+
+button {
+	border: none;
+	border-radius: 0;
+	box-sizing: border-box;
+	cursor: pointer;
+	outline: 0;
+	text-decoration: none;
+}
+
+/* Focusing the button with a keyboard will show a blue solid line. */
+button:focus-visible {
+    outline: 2px solid blue;
+}
+  
+/* Focusing the button with a mouse, touch, or stylus won't show outline. */
+button:focus:not(:focus-visible) {
+    outline: none;
+}

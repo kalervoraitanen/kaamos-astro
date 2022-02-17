@@ -1,0 +1,28 @@
+---
+export async function getStaticPaths({paginate}) {
+    /* Fetch all markdown posts */
+    const allPosts = Astro.fetchContent('../blog/**/*.md');
+    const sortedPosts = allPosts.sort((a, b) => new Date(b.publishDate) - new Date(a.publishDate));
+
+    return paginate(sortedPosts, {pageSize: 10});
+}
+
+// Imports
+import BaseLayout from '../../layouts/BaseLayout.astro'
+import BlogPostPreview from '../../components/BlogPostPreview.astro';
+import Paginator from '../../components/Paginator.astro'
+
+// Variables
+let title = 'Kaamos Astro';
+let description = 'Astro Starter Blog with high Search Engine Optimization.';
+let permalink = 'https://my-site.devblog/';
+const { page } = Astro.props;
+---
+
+<!DOCTYPE html>
+
+<BaseLayout title={title} description={description} permalink={permalink} canonicalURL={Astro.request.canonicalURL.href}>
+  {page.data.map((post) => <BlogPostPreview post={post} />)}
+
+  <Paginator page={page}/>
+</BaseLayout>

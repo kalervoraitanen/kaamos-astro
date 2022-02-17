@@ -1,0 +1,33 @@
+---
+// Imports
+import {generateCategoryData} from '../utils/helpers.js'
+
+// Exports
+export interface Props {
+  title: string;
+  publishDate: string;
+  heroImage: string;
+}
+
+// Constants
+const { content, title, publishDate, heroImage, alt } = Astro.props;
+const allCategoriesData = generateCategoryData(content.categories);
+---
+
+<article class="post" itemscope itemprop="blogPost" itemtype="http://schema.org/BlogPosting">
+    <header class="post__header">
+      <h1 class="post__title" itemprop="headline">{title}</h1>
+      <span class="screen-reader-text">Posted </span><time class="post__date" itemprop="datePublished">{publishDate}</time>
+      {heroImage && <img class="post__feature-img" loading="lazy" src={heroImage} alt={alt} itemprop="image" />}
+    </header>
+    <section class="post__content" itemprop="articleBody">
+      <slot />
+    </section>
+    <footer class="post__footer">
+      <ul class="post__footer-categories">
+        {allCategoriesData.map(category => (
+          <li><a href={`/blog/categories/${category.slug}`}>{category.name}</a></li>
+        ))}
+      </ul>
+    </footer>
+</article>

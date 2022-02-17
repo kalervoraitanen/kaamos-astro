@@ -1,0 +1,1052 @@
+/*
+Demo: Kaamos Astro - Demo #1
+Demo site: https://www.kalervoraitanen.com/kaamos
+Author: Kalervo Raitanen
+Author site: http://www.kalervoraitanen.com
+Description: Minimalist and timeless black&white demo for Kaamos Astro Starter Blog. 
+License: WTFPL License. 
+License URI: http://sam.zoy.org/wtfpl/
+*/
+
+
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+# 1. VARIABLES
+# 2. GENERAL STYLES
+# 3. TYPOGRAPHY
+    # 3.1. Font settings
+	# 3.2. Font styles
+	# 3.3. Link styles
+    # 3.4. Paragraph styles
+    # 3.4. Header styles
+    # 3.5. Table styles
+    # 3.6. Definition list styles
+    # 3.7. UL and OL styles
+    # 3.8. Other typographic styles
+# 4. MAIN HEADER STYLES
+# 5. NAVIGATION STYLES
+# 6. MAIN CONTENT STYLES
+# 7. SINGLE POST STYLES
+# 8. PAGE STYLES
+# 9. POSTS PAGINATION STYLES
+# 10. SIDEBAR STYLES
+# 11. FOOTER STYLES
+# 12. BUTTONS
+# 13. Z-INDEXES
+# 14. ANIMATIONS
+# 15. MEDIA QUERIES
+    # 15.1. Styles for 768px and larger screen sizes
+        # 15.1.1. MAIN LAYOUT STYLES
+        # 15.1.2. PAGE STYLES
+        # 15.1.3. SIDEBAR STYLES
+    # 15.2. Styles for 1024px and larger screen sizes
+        # 15.2.1. TYPOGRAPHY
+        # 15.2.2. MAIN LAYOUT STYLES
+        # 15.2.3. MAIN HEADER STYLES
+        # 15.2.4. MAIN NAVIGATION STYLES
+        # 15.2.5. MAIN CONTENT STYLES
+        # 15.2.6. Z-INDEXES
+--------------------------------------------------------------*/
+
+
+/******************************************************************
+1. VARIABLES
+******************************************************************/
+
+:root {
+    /* Colors */
+    --black:     #111111;
+    --pure-black: #000000;    
+    --white:     #eeeeee;
+    --gray:      #333333;
+    --red:       red;
+}
+
+
+/******************************************************************
+2. GENERAL STYLES
+******************************************************************/
+
+html {
+	scroll-behavior: smooth;
+	/* Standard version (Firefox only for now) */
+	scrollbar-color: var(--white) var(--pure-black);    
+}
+
+/* For Google Chrome */
+html::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+html::-webkit-scrollbar-thumb {
+    background: var(--pure-black);
+}
+
+html::-webkit-scrollbar-track {
+    background: var(--white);
+}
+
+body {
+	background: var(--black);
+	color: var(--white);
+}
+
+
+/******************************************************************
+3. TYPOGRAPHY
+******************************************************************/
+
+/* # 3.1. Font settings */
+
+/* Fluid typography sizes */
+:root {
+    --size-300: clamp(0.7rem, 0.8rem + 0.2vw, 0.9rem);
+    --size-400: clamp(0.9rem, 0.9rem + 0.24vw, 1rem);
+    --size-500: clamp(1.09rem, 1rem + 0.47vw, 1.33rem);
+    --size-600: clamp(1.37rem, 1.21rem + 0.8vw, 1.78rem);
+    --size-700: clamp(1.71rem, 1.45rem + 1.29vw, 2.37rem);
+    --size-800: clamp(2.14rem, 1.74rem + 1.99vw, 3.16rem);
+    --size-900: clamp(2.67rem, 2.07rem + 3vw, 4.21rem);
+    --size-1000: clamp(3.34rem, 2.45rem + 4.43vw, 5.61rem);
+
+    --font-main: 'Merriweather', Georgia, serif;
+    --font-heading: 'Playball', cursive;
+    --font-button: 'Arimo', Helvetica, Arial, sans-serif;    
+}
+
+
+/* # 3.2. Font styles */
+body {
+    font-family: var(--font-main);
+}
+
+.site-header:after {
+    font-size: 3rem;
+}
+
+.site-header.site-description {
+    font-size: var(--size-600);
+}
+
+.main-nav a {
+    font-family: var(--font-button);
+    font-size: var(--size-700);
+}
+
+.pagination {
+    font-size: var(--size-500);
+}
+
+.site-sidebar__heading {
+    font-family: var(--font-main);
+    font-size: var(--size-600);
+}
+
+.site-sidebar .archives summary {
+    font-size: var(--size-500);
+    font-weight: 700;
+}
+
+.site-sidebar__archives__post-date {
+    font-size: var(--size-300);
+}
+
+.header__nav a {
+    font-family: var(--font-button);
+}
+
+
+/* # 3.3. Link styles */
+a {
+	color: var(--white);
+}
+
+
+/* # 3.4. Paragraph styles */
+p:first-child {
+  margin-top: 0;
+}
+
+p,
+textarea,
+figcaption {
+  font-size: var(--size-400);
+  line-height: 1.8;
+}
+
+h1 + p,
+h2 + p,
+h3 + p,
+h4 + p,
+h5 + p,
+h6 + p {
+  margin-top: 0;
+}
+
+
+/* # 3.4. Header styles */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  line-height: 1;
+  margin: 0;
+  max-width: 100%;
+}
+
+h1:first-child,
+h2:first-child,
+h3:first-child,
+h4:first-child,
+h5:first-child,
+h6:first-child {
+  padding-top: 0;
+}
+
+h1 {
+  font-size: var(--size-800);
+  padding: 0.8em 0 0.6em 0;
+}
+
+h2 {
+  font-size: var(--size-700);
+  padding: 1em 0 0.6em 0;
+}
+
+h3 {
+  font-size: var(--size-600);
+  padding: 1em 0 0.6em 0;
+}
+
+h4 {
+  font-size: var(--size-500);
+  padding: 1em 0 0.6em 0;
+}
+
+h5 {
+  font-size: var(--size-500);
+  padding: 1em 0 0.6em 0;
+}
+
+h6 {
+  font-size: var(--size-400);
+  padding: 1em 0 0.6em 0;
+}
+
+
+/* # 3.5. Table styles */
+table {
+  border-collapse: collapse;
+}
+
+table tr {
+  border-bottom: 1px solid var(--gray);
+}
+
+table tr:first-child {
+  border-top: 1px solid var(--gray);
+}
+
+table th,
+table td {
+  border-left: 1px solid var(--gray);
+  border-right: 1px solid var(--gray);
+  padding: 0.5rem;
+}
+
+
+/* # 3.6. Definition list styles */
+dl {
+  line-height: 1.8;
+}
+
+dt {
+  font-weight: 700;
+}
+
+dd {
+  margin: 0.25rem 0 1rem 1rem;
+}
+
+
+/* # 3.7. UL and OL styles */
+ul,
+ol {
+  line-height: 1.5;
+  list-style-position: inside;
+  margin: 0.5rem 0 0 1rem;
+  padding: 0;
+}
+
+li {
+  margin: 0 0 0.5rem 0;
+}
+
+li:last-child {
+  margin: 0;
+}
+
+
+/* # 3.8. Other typographic styles */
+hr {
+  color: var(--gray);
+}
+
+dfn,
+cite,
+em,
+i {
+  font-style: italic;
+}
+
+blockquote {
+  background: var(--pure-black);
+  border-left: 6px solid var(--gray);
+  color: var(--white); 
+  font-style: italic;
+  margin: 0;
+  overflow: hidden;
+  padding: 1rem 1rem 1rem 2rem;    
+  quotes: "" "";
+}
+
+blockquote cite {
+  display: block;
+  font-weight: 700;
+  margin-top: 0.5rem;
+}
+
+blockquote:before,
+blockquote:after {
+  content: "";
+}
+
+address {
+  margin: 0 0 1.5rem;
+}
+
+pre {
+  margin: 1rem 0;
+  max-width: 300px;
+  overflow: auto;
+  padding: 0 0 0 1rem;
+}
+
+code,
+kbd,
+tt,
+var {
+  font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+}
+
+code {
+  background: var(--pure-black);
+  color: var(--white);
+  display: block;
+  margin: 1rem 0;  
+  padding: 0.5rem 1rem;
+}
+
+abbr,
+acronym {
+  border-bottom: 1px dotted var(--gray);
+  cursor: help;
+}
+
+mark,
+ins {
+  text-decoration: none;
+}
+
+big {
+  font-size: 125%;
+}
+
+q {
+  quotes: "“" "”" "‘" "’";
+}
+
+
+/******************************************************************
+4. MAIN HEADER STYLES
+******************************************************************/
+
+.site-header {
+    background-color: var(--pure-black);
+    height: auto;
+    padding: 0 4vw;	    
+	position: relative;
+}
+
+.site-header__desc {
+    color: var(--white);
+    margin: 0;
+}
+
+.site-header__logo-link {
+    display: inline-block;
+}
+
+.site-header__logo-img {
+    height: 32px;
+    margin: 16px 0;
+    position: relative;
+    text-align: center;
+    width: auto;
+}
+
+
+/******************************************************************
+5. NAVIGATION STYLES
+******************************************************************/
+
+.header__nav {
+	display: none;
+}
+
+.header__nav.active {
+    align-items: center;
+    animation: openLightbox .5s forwards ease-out;    
+    background: rgba(0,0,0,0.9);
+    bottom: 0;
+    display: grid;
+    justify-content: center;
+    left: 0;
+    opacity: 0;       
+    overflow-y: scroll;
+    padding: 2em 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    transform: scale(0.1);
+}
+
+.header__nav ul {
+    list-style-type: none;
+}
+
+.header__nav > ul {
+    padding: 0;
+    width: 70vw;      
+}
+
+.header__nav.active > ul {
+    animation: fadeInMenu .5s forwards ease-out 0.5s;
+    opacity: 0;
+}
+
+.header__nav li {
+    padding: 0 0 4px 0;
+    position: relative;    
+}
+
+.header__nav li:after {
+    background: var(--gray);    
+    content: "";
+    display: block;
+    height: 1px;
+    width: 100%;    
+}
+
+.header__nav li:last-child:after {
+    display: none;
+}
+
+.header__nav a {
+    color: var(--white);
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.nav-btn-wrap {
+    background: var(--pure-black);
+    padding: 16px 8px;
+	position: fixed;
+	right: 16px;    
+	top: 16px;
+}
+
+
+/******************************************************************
+6. MAIN CONTENT STYLES
+******************************************************************/
+
+main {	
+    margin: 160px auto 80px auto;
+}
+
+.post-preview {
+    border-bottom: 4px solid var(--gray);
+    padding: 4vw;
+    position: relative;	
+}
+
+.post {
+    padding: 0 4vw 4vw 4vw;
+}
+
+.post-preview:nth-child(odd) {
+    border-left: 4px solid var(--gray);			
+}
+
+.post-preview:nth-child(even) {
+    border-right: 4px solid var(--gray);
+}
+
+.post-preview:first-child {
+    border-top: 4px solid var(--gray);
+}
+
+.post-preview__header {
+    display: flex;
+    flex-flow: column;
+}
+
+.post__date {
+    margin: 0 0 1rem 0;    
+    order: 0;
+}
+
+.post__title {
+    margin: 0;
+    padding: 0 0 1rem 0;
+    order: 1;
+}
+
+.post__feature-img {
+    display: block;
+    margin: 0 0 1.5rem 0;
+    order: 1;	
+    position: relative;
+}
+
+.post-preview__footer {
+    margin: 2rem 0 0 0;
+}
+
+.post__footer-categories {
+    display: flex;
+    flex-wrap: wrap;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.post__footer-categories li {
+    margin: 0 1rem 0 0;
+}
+
+.post__footer-categories a {
+    padding: 0 0 0 1rem;
+    position: relative;
+}
+
+.post__footer-categories a:before {
+    content: "#";    
+    left: 0;
+    position: absolute;
+}
+
+
+/******************************************************************
+7. SINGLE POST STYLES
+******************************************************************/
+
+.single-post main {	
+    margin: 160px 4vw 80px 4vw;
+}
+
+.single-post .post__header {
+    display: flex;
+    flex-flow: column;		
+}
+
+.single-post .post__date {
+    align-items: center;
+    display: flex;
+    order: 0;
+}
+
+.single-post .post__title {
+    order: 1;
+}
+
+.single-post .post__feature-img {
+    order: 2;
+}
+
+.single-post .post__title:after {
+    background: var(--gray);		  		
+    content: "";
+    display: block;
+    height: 1px;
+    margin: 0.5rem 0 0 0;
+    width: 100%;    	
+}				
+
+.single-post .post__footer {
+    margin: 2rem 0 0 0;
+}
+
+
+/******************************************************************
+8. PAGE STYLES
+******************************************************************/
+
+.page main {
+    background: var(--gray);
+    margin: 160px 0 80px 0;
+    padding: 4vw;
+}
+
+.page h1:after {
+    background: var(--gray);		  		
+    content: "";
+    display: block;
+    height: 1px;
+    margin: 0.5rem 0 0 0;
+    width: 100%;    	
+}
+
+
+/******************************************************************
+9. POSTS PAGINATION STYLES
+******************************************************************/
+
+
+/******************************************************************
+10. SIDEBAR STYLES
+******************************************************************/
+
+.site-sidebar {
+	margin: 3rem 4vw 0 4vw;
+}
+
+.site-sidebar__section {
+    padding: 0;
+    margin: 0 0 3rem 0;
+    max-width: 25rem;		
+}
+
+.site-sidebar__heading {		
+    margin: 0 0 0.5rem 0;
+    padding: 0 0 0.25rem 0;
+}
+
+.site-sidebar__heading:after {
+    background: var(--gray);		  		
+    content: "";
+    display: block;
+    height: 1px;
+    margin: 6px 0 0 0;
+    width: 100%;			
+}
+
+.site-sidebar ul {
+    list-style-position: inside;
+    list-style-type: disc;
+    margin: 0;
+    padding: 0;
+}
+
+.site-sidebar li {
+    margin: 0 0 0.5rem 0;
+}
+
+.site-sidebar li:last-child {
+    margin: 0;
+}
+
+.site-sidebar .archives details {
+    margin: 0 0 0.5rem 0;
+}
+
+.site-sidebar .archives ul {
+    margin: 0 0 0 1rem;
+}
+
+.site-sidebar__archives__post {
+    margin: 0 0 0.5rem 0;
+}
+
+.site-sidebar__archives__post-date {
+    display: block;
+}
+
+
+/******************************************************************
+11. FOOTER STYLES
+******************************************************************/
+
+.site-footer {
+    background: var(--pure-black);
+	padding: 1rem 2.5rem 1rem 0;
+}
+
+.site-footer p {
+	text-align: center;
+}
+
+
+/******************************************************************
+12. BUTTONS
+******************************************************************/
+
+/* Read More button */
+.read-more {
+    background: var(--white);
+    color: var(--black);
+    font-family: var(--font-button);
+    padding: 0.5rem 1rem;  
+    text-decoration: none;
+}
+
+/* Navigation toggle button */
+.nav-button {
+    background: var(--white);
+    border: none;
+    border-radius: 0;    
+    cursor: pointer;
+    display: block;
+    height: 2px;
+    margin: 0;    
+    padding: 0;
+    position: relative;
+    text-indent: -9999px;
+    transition: all 0.25s ease-out;
+    width: 24px;
+}
+
+.nav-button:before {
+    background: var(--white);
+    content: "";
+    display: block;
+    height: 2px;
+    left: 0;
+    margin-top: -8px;
+    position: absolute;
+    transition: margin 0.25s ease-out 0.25s, transform 0.25s ease-out, background-color 0.25s ease-out;
+    width: 24px;
+}
+    
+.nav-button:after {
+    background: var(--white);
+    bottom: 0;
+    content: "";
+    display: block;
+    height: 2px;
+    left: 0;
+    margin-bottom: -8px;
+    position: absolute;
+    transition: margin 0.25s ease-out 0.25s, transform 0.25s ease-out, background-color 0.25s ease-out;
+    width: 24px;
+}
+
+.nav-button.close {
+    height: 0;
+}
+  
+.nav-button.close:before {
+    background-color: var(--red);
+    margin-top: 0;
+    opacity: 1;
+    top: 0;
+    transform: rotate(45deg);
+    transform-origin: center;       
+    transition: margin 0.25s ease-out, transform 0.25s ease-out 0.25s, background-color 0.25s ease-out 0.25s;
+}
+  
+.nav-button.close:after {
+    background-color: var(--red);
+    bottom: -2px;
+    margin-bottom: 0;
+    opacity: 1;
+    transform: rotate(-45deg);
+    transform-origin: -center;
+    transition: margin 0.25s ease-out, transform 0.25s ease-out 0.25s, background-color 0.25s ease-out 0.25s;
+}
+
+
+/******************************************************************
+13. Z-INDEXES
+******************************************************************/
+
+.header__nav.active {
+	z-index: var(--layer4);
+}
+
+.nav-btn-wrap {
+	z-index: var(--layer5);
+}
+
+.site-header__logo-link {
+    z-index: var(--layer2);
+}
+
+.site-header__logo-link:after {
+    z-index: var(--layer1);
+}
+
+.site-header__logo-img {
+    z-index: var(--layer2);
+}
+
+
+/******************************************************************
+14. ANIMATIONS
+******************************************************************/
+
+@keyframes openLightbox {
+    0% {
+        transform: scale(0.1);
+		opacity: 0;
+    }
+
+    100% {
+        transform: scale(1);
+		opacity: 1;
+    }
+}
+
+@keyframes fadeInMenu {
+    0% {
+		opacity: 0;
+    }
+
+    100% {
+		opacity: 1;
+    }
+}
+
+
+/******************************************************************
+15. MEDIA QUERIES
+******************************************************************/
+
+/* 15.1. Styles for 768px and larger screen sizes */
+@media only screen and (min-width: 768px) {
+
+    /******************************************************************
+    15.1.1. MAIN LAYOUT STYLES
+    ******************************************************************/
+
+    .grid-layout {
+        display: grid;
+        grid-template-columns: 1fr 320px;
+        grid-template-areas:
+        "header header"
+        "main sidebar"
+        "pagenav sidebar"
+        "footer footer";
+    }
+
+    .site-header {
+        grid-area: header;
+    }
+
+    main {
+        grid-area: main;
+        margin: 160px 0 80px 0;
+    }
+
+    .site-sidebar {
+        grid-area: sidebar;
+    }
+
+    .pagination {
+        grid-area: pagenav;
+    }
+
+    .site-footer {
+        grid-area: footer;
+    }
+
+
+    /******************************************************************
+    15.1.2. PAGE STYLES
+    ******************************************************************/
+    
+    .page main {
+        margin: 160px auto 80px auto;
+        max-width: 50em;
+    }
+
+    
+    /******************************************************************
+    15.1.3. SIDEBAR STYLES
+    ******************************************************************/
+
+    .site-sidebar {
+        border-left: 1px solid var(--pure-black);
+        margin: 160px 32px 80px 0;        
+        max-width: 25rem;
+        padding: 0 0 0 32px;        
+    }
+
+    .single-post .site-sidebar,
+    .page .site-sidebar {
+        border-left: none;
+        margin: 0 auto;
+        max-width: 25em;
+        padding: 0;
+    }
+        
+} 
+/* End of 768px Media Query */
+
+
+/* 15.2. Styles for 1024px and larger screen sizes */
+@media only screen and (min-width: 1024px) {
+
+    /******************************************************************
+    15.2.1. TYPOGRAPHY
+    ******************************************************************/
+
+    pre {
+        max-width: 500px;
+    }
+
+    
+    /* # Font styles */
+    .header__nav a {
+        font-size: var(--size-400);
+    }    
+
+
+    /******************************************************************
+    15.2.2. MAIN LAYOUT STYLES
+    ******************************************************************/
+
+    body:not(.single-post) {
+        grid-template-columns: 1fr 400px;
+    }  
+
+
+    /******************************************************************
+    15.2.3. MAIN HEADER STYLES
+    ******************************************************************/
+    
+    .site-header {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas:
+        "logo nav"
+        "desc nav";
+        align-items: center;
+        justify-content: flex-start;
+    }
+
+    .site-header__logo-link {
+        grid-area: logo;
+    }
+
+    .site-header__desc {
+        grid-area: desc;
+    }
+
+    /******************************************************************
+    15.2.4. MAIN NAVIGATION STYLES
+    ******************************************************************/
+
+    .nav-btn-wrap {
+        display: none;
+    }
+
+    .header__nav {
+        align-items: center;
+        background: var(--pure-black);
+        display: flex;  
+        grid-area: nav;
+        height: 2rem;
+        justify-content: center;        
+        margin: 0 auto;
+        max-width: 60vw;                
+        padding: 0;
+        width: calc(70vw - 2.5rem - 200px);       
+    }
+
+    .header__nav > ul {
+        background-color: transparent;
+        box-shadow: none;
+        height: auto; 		
+        list-style: none;
+        margin: 0;
+        overflow-y: unset;		
+        padding: 0;
+        position: relative;
+        transform: translateX(0);
+        transition: none;
+        width: 100%;
+    }
+
+    .header__nav > ul > li {
+        margin: 0 1rem 0 0;
+        padding: 0;			
+    }
+
+    .header__nav li {
+        display: inline-block;
+        position: relative;
+        text-align: left; /* Reset text alignment */
+    }
+
+    .header__nav li:after {
+        background: none;
+        background-color: var(--white);    		
+        content: "";
+        display: block;
+        height: 2px;
+        margin: 0 auto;
+        transition: width 0.5s ease;
+        width: 0;	    	
+    }
+
+    .header__nav li:hover:after {
+        width: 100%;
+    }
+
+    .header__nav li:last-child:after {
+        display: block;
+    }   
+
+    .header__nav a {
+        color: var(--white);
+    }
+
+
+    /******************************************************************
+    15.2.5. MAIN CONTENT STYLES
+    ******************************************************************/
+
+    .single-post main {
+        width: 50rem;
+        margin: 160px auto 80px auto;
+    }
+
+    body:not(.single-post) .post-preview__header,
+    body:not(.single-post) .post-preview__content,
+    body:not(.single-post) .post-preview__footer {
+        max-width: 640px;
+    }    
+    
+    
+    /******************************************************************
+    15.2.6. Z-INDEXES
+    ******************************************************************/
+
+    .header__nav {
+        z-index: var(--layer2);
+    }
+
+    .header__nav > ul {
+        z-index: var(--layer2);
+    }
+ 
+}
+/* End of 1024px Media Query */

@@ -1,0 +1,50 @@
+---
+// Imports
+import BaseLayout from '../../../layouts/BaseLayout.astro'
+import {generateCategoryData} from '../../../utils/helpers.js'
+
+export async function getStaticPaths() {
+    const allPosts = Astro.fetchContent('../*.md');
+    const sortedPosts = allPosts.sort((a, b) => new Date(b.publishDate) - new Date(a.publishDate));
+    const allCategoriesUnique = new Set();
+
+    // Loop through all posts and fetch all unique categories
+    sortedPosts.map(post => {
+        post.categories && post.categories.map(category => {
+            allCategoriesUnique.add(category);
+        })
+    })
+    const allCategoriesData = generateCategoryData(allCategoriesUnique);
+
+    // Map through the categories array
+    return allCategoriesData.map((category => {
+        const posts = sortedPosts.filter((post) => post.categories.includes(category.name));
+        return {
+            params: {slug: category.slug},
+            props: {
+                category: category.name,
+                posts: posts
+            }
+        };
+    }));
+}
+
+// Constants
+const {category, posts} = Astro.props;
+const title = `Posts categorized in: ${category}`;
+---
+
+<BaseLayout title={title}>
+    <article class="post">
+        <header class="post__header">
+            <h1 class="post__title">{title}</h1>
+        </header>
+        <section class="post__content">
+            <ul>
+                {posts.map(post => (
+                    <li><a href={post.url}>{post.title}</a></li>
+                ))}
+            </ul>
+        </section>
+    </article>
+</BaseLayout>

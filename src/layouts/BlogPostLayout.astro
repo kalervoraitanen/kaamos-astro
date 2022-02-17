@@ -1,0 +1,36 @@
+---
+// Imports
+import { Markdown } from 'astro/components';
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Sidebar from '../components/Sidebar.astro';
+import Footer from '../components/Footer.astro';
+import BlogPost from '../components/BlogPost.astro';
+
+// Constants
+const {content} = Astro.props;
+const {title, description, publishDate, heroImage, permalink, alt} = content;
+---
+
+<!DOCTYPE html>
+<html lang={ content.lang || 'en' }>
+  <head>
+    <BaseHead title={title} description={description} permalink={permalink} ogImageUrl={heroImage} publishDate={publishDate} canonicalURL={Astro.request.canonicalURL} />
+  </head>
+
+  <body class="single-post" itemscope itemtype="http://schema.org/WebPage">
+    <Header />
+
+    <main itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/Blog" tabindex=-1>
+      <BlogPost content={content} title={title} heroImage={heroImage} publishDate={publishDate} alt={alt}>
+        <slot />
+      </BlogPost>
+    </main>
+
+    <Sidebar />
+
+    <Footer /> 
+  </body>
+
+</html>
+
