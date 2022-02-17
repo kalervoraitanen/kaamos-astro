@@ -1,7 +1,7 @@
 # Kaamos Astro
 Highly Search Engine Optimized Starter Blog for Astro 
 
-## [Demo Site](https://www.kalervoraitanen.com/kaamos)
+## <a href="https://www.kalervoraitanen.com/kaamos" target="_blank">Demo site</a>
 
 Kaamos Astro is designed to give a strong semantic and lightweight foundation to a blog. It is highly Search Engine optimized especially for blogs with Schema.org Microdata. It is meant to be used as a starter blog which you can use to develop your own theme.
 
@@ -43,7 +43,7 @@ Start writing new blog posts in Markdown at `src/pages/blog/`
 Kaamos Astro comes with demo themes to showcase what can be done with just CSS and a touch of Vanilla Javascript. All the demos are also WTFPL licensed so you can use them anyway you want. However you are forbidden to hold me liable for anything if you choose to use them.
 
 Demos so far:
-- [Demo #1](https://www.kalervoraitanen.com/kaamos)
+<a href="https://www.kalervoraitanen.com/kaamos" target="_blank">Demo #1</a>)
 
 Activating a demo is very simple. Below are the instructions how to do it:
 
