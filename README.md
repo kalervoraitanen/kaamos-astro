@@ -3,7 +3,7 @@ Highly Search Engine Optimized Starter Blog for Astro
 
 ## <a href="https://www.kalervoraitanen.com/kaamos" target="_blank">Demo site</a>
 
-Kaamos Astro is designed to give a strong semantic and lightweight foundation to a blog. It is highly Search Engine optimized especially for blogs with Schema.org Microdata. It is meant to be used as a starter blog which you can use to develop your own theme.
+Kaamos Astro is designed to give a strong semantic and lightweight foundation to a blog. It is highly Search Engine optimized especially for blogs with Schema.org Microdata. It is meant to be used as a starter blog which you can use to develop your own blog.
 
 Kaamos is minimalistic as possible and has only the essential features of a blog and no unnecessary CSS. However it comes with some CSS files for example a demo theme and some practical styles. You can easily remove these if you want just the bare bones starter blog.
 
