@@ -1,0 +1,1219 @@
+/*
+Demo: Kaamos Astro - Demo #2
+Demo site: https://www.kalervoraitanen.com/kaamos
+Author: Kalervo Raitanen
+Author site: http://www.kalervoraitanen.com
+Description: Minimalist blogging theme for Kaamos Astro Starter Blog. 
+License: WTFPL License. 
+License URI: http://sam.zoy.org/wtfpl/
+*/
+
+
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+# 1. VARIABLES
+# 2. GENERAL STYLES
+# 3. TYPOGRAPHY
+    # 3.1. Font settings
+	# 3.2. Font styles
+	# 3.3. Link styles
+    # 3.4. Paragraph styles
+    # 3.5. Header styles
+    # 3.6. Table styles
+    # 3.7. Definition list styles
+    # 3.8. UL and OL styles
+    # 3.9. Other typographic styles
+# 4. MAIN HEADER STYLES
+# 5. NAVIGATION STYLES
+# 6. MAIN CONTENT STYLES
+# 7. SINGLE POST STYLES
+# 8. PAGE STYLES
+# 9. POSTS PAGINATION STYLES
+# 10. SIDEBAR STYLES
+# 11. FOOTER STYLES
+# 12. BUTTONS
+# 13. Z-INDEXES
+# 14. ANIMATIONS
+# 15. MEDIA QUERIES
+    # 15.1. Styles for 768px and larger screen sizes
+        # 15.1.1. TYPOGRAPHY
+        # 15.1.2. MAIN HEADER STYLES
+        # 15.1.3. NAVIGATION STYLES
+        # 15.1.4. MAIN CONTENT LAYOUT STYLES
+        # 15.1.5. SINGLE POST STYLES
+        # 15.1.6. PAGE STYLES
+        # 15.1.7. Z-INDEXES
+        # 15.1.8. SIDEBAR STYLES        
+    # 15.2. Styles for 1024px and larger screen sizes
+        # 15.2.1. TYPOGRAPHY
+        # 15.2.2. MAIN LAYOUT STYLES
+        # 15.2.3. MAIN CONTENT LAYOUT STYLES
+        # 15.2.4. SINGLE POST STYLES
+        # 15.2.5. PAGE STYLES
+        # 15.2.6. SIDEBAR STYLES
+        # 15.2.7. Z-INDEXES
+--------------------------------------------------------------*/
+
+
+/******************************************************************
+1. VARIABLES
+******************************************************************/
+
+:root {
+    /* Colors */
+    --button_bgcolor: #134347;
+    --button_color: #eeeeee;
+    --white: #eeeeee;
+    --black: #111111;
+    --gray: #555555;
+    --green: #134347;
+    --light-gray: #bbbbbb;
+    --light-green: #bdd6c7;
+    --site_text_color: #325050;
+}
+
+
+/******************************************************************
+2. GENERAL STYLES
+******************************************************************/
+
+html {
+	/* Standard version (Firefox only for now) */
+	scrollbar-color: var(--white) var(--green);    
+}
+
+/* For Google Chrome */
+html::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+html::-webkit-scrollbar-thumb {
+    background: var(--green);
+}
+
+html::-webkit-scrollbar-track {
+    background: var(--white);
+}
+
+body {
+	color: var(--white);
+}
+
+
+/******************************************************************
+3. TYPOGRAPHY
+******************************************************************/
+
+/* # 3.1. Font settings */
+
+/* Fluid typography sizes */
+:root {
+    --size-300: clamp(0.7rem, 0.8rem + 0.2vw, 0.9rem);
+    --size-400: clamp(0.9rem, 0.9rem + 0.24vw, 1rem);
+    --size-500: clamp(1.09rem, 1rem + 0.47vw, 1.33rem);
+    --size-600: clamp(1.37rem, 1.21rem + 0.8vw, 1.78rem);
+    --size-700: clamp(1.71rem, 1.45rem + 1.29vw, 2.37rem);
+    --size-800: clamp(2.14rem, 1.74rem + 1.99vw, 3.16rem);
+    --size-900: clamp(2.67rem, 2.07rem + 3vw, 4.21rem);
+    --size-1000: clamp(3.34rem, 2.45rem + 4.43vw, 5.61rem);
+
+    /* Fonts */
+    --font-heading: Helvetica, Arial, sans-serif;
+    --font-main: Georgia, sans-serif;
+    --font-button: 'Arial Black', sans-serif;  
+}
+
+
+/* # 3.2. Font styles */
+body {
+    color: var(--site_text_color);
+    font-family: var(--font-main);
+    font-size: 100%;
+    line-height: 1;
+    position: relative;
+}
+
+.site-header__desc {
+    font-size: var(--size-600);
+}
+
+.pagination {
+    font-size: var(--size-500);
+}
+
+.site-sidebar__heading {
+    font-family: var(--font-main);
+    font-size: var(--size-600);
+}
+
+.site-sidebar .archives summary {
+    font-size: var(--size-500);
+    font-weight: 700;
+}
+
+.site-sidebar__archives__post-date {
+    font-size: var(--size-300);
+}
+
+.header__nav a {
+    font-family: var(--font-button);
+    font-size: var(--size-700);
+}
+
+
+/* 3.3. Link styles */
+a {
+    color: var(--green);
+    font-weight: 700;
+    text-decoration: underline;
+}
+
+/* 3.4. Paragraph styles */
+p:first-child {
+    margin-top: 0;
+}
+  
+p,
+textarea,
+figcaption {
+    font-size: var(--size-400);
+    line-height: 1.8;
+}
+
+h1 + p,
+h2 + p,
+h3 + p,
+h4 + p,
+h5 + p,
+h6 + p {
+  margin-top: 0;
+}
+
+
+/* # 3.5. Header styles */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  line-height: 1;
+  margin: 0;
+  max-width: 100%;
+}
+
+h1:first-child,
+h2:first-child,
+h3:first-child,
+h4:first-child,
+h5:first-child,
+h6:first-child {
+  padding-top: 0;
+}
+
+h1 {
+  font-size: var(--size-800);
+  padding: 0.8em 0 0.6em 0;
+}
+
+h2 {
+  font-size: var(--size-700);
+  padding: 1em 0 0.6em 0;
+}
+
+h3 {
+  font-size: var(--size-600);
+  padding: 1em 0 0.6em 0;
+}
+
+h4 {
+  font-size: var(--size-500);
+  padding: 1em 0 0.6em 0;
+}
+
+h5 {
+  font-size: var(--size-500);
+  padding: 1em 0 0.6em 0;
+}
+
+h6 {
+  font-size: var(--size-400);
+  padding: 1em 0 0.6em 0;
+}
+
+
+/* # 3.6. Table styles */
+table {
+    border-collapse: collapse;
+}
+
+table tr {
+    border-bottom: 1px solid var(--light-gray);
+}
+
+table tr:first-child {
+    border-top: 1px solid var(--light-gray);
+}
+  
+table th,
+table td {
+    border-left: 1px solid var(--light-gray);
+    border-right: 1px solid var(--light-gray);
+    padding: 0.5em;
+}
+
+
+/* # 3.7. Definition list styles */
+dl {
+    line-height: 1.8;
+}
+
+dt {
+    font-weight: 700;
+}
+
+dd {
+    margin: 0.25em 0 1em 1em;
+}
+
+
+/* # 3.8. UL and OL styles */
+ul,
+ol {
+    line-height: 1.5;
+    list-style-position: inside;
+    margin: 1em 0;
+}
+
+li {
+    margin: 0 0 0.5em 0;
+}
+
+li:last-child {
+    margin: 0;
+}
+
+
+/* # 3.9. Other typographic styles */
+hr {
+    color: var(--gray);
+}
+
+dfn,
+cite,
+em,
+i {
+    font-style: italic;
+}
+
+blockquote {
+    background: var(--light-gray);
+    border-left: 6px solid var(--gray);
+    color: var(--black);  
+    font-style: italic;
+    margin: 0;
+    overflow: hidden;
+    quotes: "" "";
+    padding: 1em 1em 1em 2em;
+}
+
+blockquote cite {
+    display: block;
+    font-weight: 700;
+    margin-top: 0.5em;
+}
+
+blockquote:before,
+blockquote:after {
+    content: "";
+}
+
+address {
+    margin: 0 0 1.5em;
+}
+
+pre {
+    margin: 1em 0;
+    max-width: 300px;
+    overflow: auto;
+    padding: 0 0 0 1em;
+}
+
+code,
+kbd,
+tt,
+var {
+    font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+}
+
+code {
+    background: #1b1b1b;
+    color: var(--white);
+    display: block;
+    margin: 1em 0;  
+    padding: 0.5em 1em;
+}
+
+abbr,
+acronym {
+    border-bottom: 1px dotted var(--gray);
+    cursor: help;
+}
+
+mark,
+ins {
+    text-decoration: none;
+}
+
+big {
+    font-size: 125%;
+}
+
+q {
+    quotes: "“" "”" "‘" "’";
+}
+
+
+/******************************************************************
+4. MAIN HEADER STYLES
+******************************************************************/
+
+.site-header {
+    --c : var(--green);
+    --t : transparent;    
+    align-items: center;  
+    background-image:
+    repeating-linear-gradient(45deg, var(--c) 0, var(--c) 20px, var(--t) 20px, var(--t) 32px, var(--c) 32px, var(--c) 44px, var(--t) 44px, var(--t) 56px, var(--c) 56px, var(--c) 68px, var(--t) 68px, var(--t) 80px, var(--c) 0),
+    repeating-linear-gradient(-45deg, var(--c) 0, var(--c) 20px, var(--t) 20px, var(--t) 32px, var(--c) 32px, var(--c) 44px, var(--t) 44px, var(--t) 56px, var(--c) 56px, var(--c) 68px, var(--t) 68px, var(--t) 80px, var(--c) 0),
+    linear-gradient(to bottom right, #064f5e, #275f5d);    
+    display: flex;
+    flex-flow: column;    
+    padding: 6rem 4vw 2rem 4vw;
+}
+
+.site-title a {
+    text-decoration: none;
+}
+
+.site-header__desc {
+    color: var(--light-gray);
+    font-size: var(--size-500);
+    line-height: 1.5;
+    margin: 1rem 0;
+    max-width: 60vw;
+}
+
+.site-header__logo-link {
+    max-width: 70vw;
+}
+
+.nav-btn-wrap {
+    position: fixed;
+    top: 2vw;
+    right: 2vw;
+    background: var(--green);
+    padding: calc(0.5rem + 12px) 0.5rem;
+}
+
+
+/******************************************************************
+5. NAVIGATION STYLES
+******************************************************************/
+
+.header__nav {
+    display: none;
+}
+
+.header__nav.active {
+    align-items: center;
+    -webkit-animation: openLightbox .5s forwards ease-out;
+    animation: openLightbox .5s forwards ease-out;    
+    background: rgba(0,0,0,0.9);
+    bottom: 0;
+    display: grid;
+    justify-content: center;
+    left: 0;
+    opacity: 0;     
+    overflow-y: scroll;
+    padding: 2rem 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    transform: scale(0.1);    
+}
+
+.primary-menu {
+    list-style-type: none;
+    padding: 0;
+    width: 70vw;  
+}
+
+.header__nav.active .primary-menu {
+    animation: fadeInMenu .5s forwards ease-out 0.5s;    
+    -webkit-animation: fadeInMenu .5s forwards ease-out 0.5s;
+    opacity: 0;
+}
+
+.primary-menu__item {
+    position: relative;
+    padding: 0 0 4px 0;
+}
+
+.primary-menu__item:after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 1px;
+    background: var(--light-gray);
+}
+
+.primary-menu__item:last-child:after {
+    display: none;
+}
+
+.primary-menu__item a {
+    color: var(--white);
+    font-family: var(--font-button);
+    font-size: var(--size-600);
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+
+/******************************************************************
+6. MAIN CONTENT STYLES
+******************************************************************/
+
+.post-preview {
+    margin: 0;
+    padding: 6vw;
+}
+
+.post-preview:nth-child(odd) {
+    background: linear-gradient(90deg, var(--white) 0%, #dddddd 100%);
+}
+
+.post-preview:nth-child(even) {
+    background:
+    radial-gradient(var(--light-green) 3px, transparent 5px, var(--light-green) 7px, transparent 9px, var(--light-green) 11px, transparent 13px, var(--light-green) 15px, transparent 17px, var(--light-green) 19px, transparent 21px, var(--light-green) 23px, transparent 25px, var(--light-green) 27px, transparent 29px, var(--light-green) 31px, transparent 33px);
+    background-color: var(--white);
+    background-size: 30px 30px;    
+}
+
+.post-preview__header {
+    display: flex;
+    flex-flow: column;
+}
+
+.post__title {
+    order: 1;    
+}
+
+.post__date {
+    font-weight: var(--size-300);
+    font-weight: 700;  
+    line-height: 1;
+    margin: 0 0 1rem 0;
+    order: 0;
+}
+
+.post__feature-img {
+    display: block;
+    margin: 1rem 0 1.5rem 0;
+    order: 2;	
+    position: relative;
+}
+
+.post-preview__footer {
+    margin: 2rem 0 0 0;
+}
+
+.post__footer-categories {
+    display: flex;
+    flex-wrap: wrap;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.post__footer-categories li {
+    margin: 0 1rem 0 0;
+}
+
+.post__footer-categories a {
+    padding: 0 0 0 1rem;
+    position: relative;
+}
+
+.post__footer-categories a:before {
+    content: "#";    
+    left: 0;
+    position: absolute;
+}
+
+
+/******************************************************************
+7. SINGLE POST STYLES
+******************************************************************/
+
+.single-post main {
+    background-color: var(--light-green);
+}
+
+.post {
+    padding: 1.5rem;
+    position: relative;		
+}
+
+.post .post__header {
+    display: flex;
+    flex-flow: column;
+}
+
+.post .post__title {
+    margin: 0 0 0.5rem 0;
+    padding: 0;
+    order: 1;  
+}
+
+.post .post__title:after {
+    background: var(--gray);	  		
+    content: "";
+    display: block;
+    height: 1px;
+    margin: 0.75rem 0 0 0;
+    width: 100%;    	
+}
+
+.single-post .post__feature-img {
+    order: 2;
+}
+
+.post .post__date {
+    font-weight: 700;
+    order: 0;
+}
+
+.post .post__footer {
+    margin: 2rem 0 0 0;
+}
+
+
+/******************************************************************
+8. PAGE STYLES
+******************************************************************/
+
+.page main {
+    background-color: var(--white);
+}
+
+.page__content {
+    padding: 2rem;
+}
+
+.page h1 {
+    margin: 0 0 0.5rem 0;    
+}
+
+.page h1:after {
+    background: var(--gray);	  		
+    content: "";
+    display: block;
+    height: 1px;
+    margin: 0.75rem 0 0 0;
+    width: 100%;    	
+}
+
+
+/******************************************************************
+9. POSTS PAGINATION STYLES
+******************************************************************/
+
+
+/******************************************************************
+10. SIDEBAR STYLES
+******************************************************************/
+
+.site-sidebar {	
+	background-color: rgba(199, 205, 202, 0.8);
+	display: flex;
+	flex-flow: column;
+	padding: 1.5rem;
+}
+
+.site-sidebar__section {
+    padding: 0;
+    margin: 0 0 3rem 0;
+}
+
+.site-sidebar ul {
+    margin: 0;
+    padding: 0;
+    list-style-position: inside;
+    list-style-type: disc;
+}
+
+.site-sidebar li {
+	margin: 0 0 0.5rem 0;
+}
+
+.site-sidebar li:last-child {
+    margin: 0;
+}
+
+.site-sidebar__heading {
+    font-size: 1.5rem;		
+    margin: 0 0 0.25rem 0;
+    padding: 0 0 0.25rem 0;
+}
+
+.site-sidebar__heading:after {
+    background: var(--light-gray);		  		
+    content: "";
+    display: block;
+    height: 1px;
+    margin: 6px 0 0 0;
+    width: 100%;
+}
+
+.site-sidebar .archives details {
+    margin: 0 0 0.5rem 0;
+}
+
+.site-sidebar .archives ul {
+    margin: 0 0 0 1rem;
+}
+
+.site-sidebar__archives__post {
+    margin: 0 0 0.5rem 0;
+}
+
+.site-sidebar__archives__post-date {
+    display: block;
+    padding: 0 0 0 1rem;
+}
+
+
+/******************************************************************
+11. FOOTER STYLES
+******************************************************************/
+
+.site-footer {
+	background: var(--green);
+    padding: 1rem 3vw;
+}
+
+.site-footer p {
+    color: var(--light-gray);
+    margin: 0;    
+    text-align: center;
+}
+
+.site-footer a {
+    color: var(--light-gray);
+}
+
+
+/******************************************************************
+12. BUTTONS
+******************************************************************/
+
+/* Read More Button */
+.read-more {
+    background-color: var(--button_bgcolor);
+    border: none;
+    box-sizing: border-box;
+    color: var(--button_color);
+    cursor: pointer;
+    font-family: var(--font-button);
+    outline: 0;
+    padding: 0.5rem;
+    position: relative;
+    text-decoration: none;
+    transition: all 0.5s ease-out;
+}
+
+/* Navigation toggle button */
+.nav-button {
+    background: var(--white);
+    border: none;
+    border-radius: 0;    
+    cursor: pointer;
+    display: block;
+    height: 4px;
+    margin: 0;    
+    padding: 0;
+    position: relative;
+    text-indent: -9999px;
+    transition: all 0.25s ease-out;
+    width: 30px;   
+}
+
+.nav-button:before {
+    background: var(--white);
+    content: "";
+    display: block;
+    height: 4px;
+    left: 0;
+    margin-top: -10px;
+    position: absolute;
+    transition: margin 0.25s ease-out 0.25s, transform 0.25s ease-out, background-color 0.25s ease-out;
+    width: 30px;
+}
+    
+.nav-button:after {
+    background: var(--white);
+    bottom: 0;
+    content: "";
+    display: block;
+    height: 4px;
+    left: 0;
+    margin-bottom: -10px;
+    position: absolute;
+    transition: margin 0.25s ease-out 0.25s, transform 0.25s ease-out, background-color 0.25s ease-out;
+    width: 30px;
+}
+
+.nav-button.close {
+    height: 0;
+}
+  
+.nav-button.close:before {
+    background-color: red;
+    margin-top: 0;
+    opacity: 1;
+    top: 0;
+    transform-origin: center;
+    transform: rotate(45deg);    
+    transition: margin 0.25s ease-out, transform 0.25s ease-out 0.25s, background-color 0.25s ease-out 0.25s;
+}
+  
+.nav-button.close:after {
+    background-color: red;
+    bottom: -4px;
+    margin-bottom: 0;
+    opacity: 1;
+    transform: rotate(-45deg);
+    transform-origin: -center;
+    transition: margin 0.25s ease-out, transform 0.25s ease-out 0.25s, background-color 0.25s ease-out 0.25s;
+}
+
+
+/******************************************************************
+13. Z-INDEXES
+******************************************************************/
+
+.header__nav.active {  
+    z-index: 4;
+}
+
+.nav-btn-wrap {
+    z-index: 5;
+}
+
+
+/******************************************************************
+14. ANIMATIONS
+******************************************************************/
+
+@-webkit-keyframes openLightbox {
+    0% {
+        transform: scale(0.1);
+		opacity: 0;
+    }
+
+    100% {
+        transform: scale(1);
+		opacity: 1;
+    }
+}
+
+
+@keyframes openLightbox {
+    0% {
+        transform: scale(0.1);
+		opacity: 0;
+    }
+
+    100% {
+        transform: scale(1);
+		opacity: 1;
+    }
+}
+
+@-webkit-keyframes fadeInMenu {
+    0% {
+		opacity: 0;
+    }
+
+    100% {
+		opacity: 1;
+    }
+}
+
+
+@keyframes fadeInMenu {
+    0% {
+		opacity: 0;
+    }
+
+    100% {
+		opacity: 1;
+    }
+}
+
+
+/******************************************************************
+15. MEDIA QUERIES
+******************************************************************/
+
+/* 15.1. Styles for 768px and larger screen sizes */
+@media only screen and (min-width: 768px) {
+
+    /******************************************************************
+    15.1.1. TYPOGRAPHY
+    ******************************************************************/
+
+    pre {
+        max-width: 480px;
+    }
+
+
+    /******************************************************************
+    15.1.2. MAIN HEADER STYLES
+    ******************************************************************/
+
+    .site-header {
+        display: flex;
+        flex-flow: column;
+        margin: 0;
+        padding: 100px 0 2rem 0;
+    }
+
+    .site-header__desc {
+        max-width: unset;
+    }    
+
+    .site-header__logo-link {
+        margin: 0 auto;
+        display: inline-block;
+        width: 320px;
+    }
+
+    .nav-btn-wrap {
+        display: none;
+    }
+
+
+    /******************************************************************
+    15.1.3. NAVIGATION STYLES
+    ******************************************************************/
+
+    .nav-button {
+        display: none;
+    }
+
+    .header__nav {
+        align-items: center;
+        background: var(--green);  
+        display: flex;
+        grid-area: nav;
+        justify-content: center;
+        height: 3rem;
+        left: 0;      
+        padding: 0;
+        position: fixed;
+        top: 0;
+        width: 100vw;
+    }
+
+    .primary-menu {
+        background-color: transparent;
+        display: flex;	
+        list-style: none;
+        margin: 0;
+        overflow-y: unset;		
+        padding: 0;
+        text-align: center;
+        transition: none;
+        width: auto;
+    }
+
+    .primary-menu__item {
+        margin: 0 1rem 0 0;
+        padding: 0;
+        position: relative;
+    }
+
+    .primary-menu__item:after {
+        background: none;
+        background-color: var(--white);    		
+        content: "";
+        display: block;
+        height: 2px;
+        margin: 0 auto;
+        transition: width 0.5s ease;
+        width: 0;	    	
+    }
+
+    .primary-menu__item:hover:after {
+        width: 100%;
+    }
+
+    .primary-menu__item:last-child:after {
+        display: block;
+    }
+
+    .primary-menu__item a {
+        color: var(--white);
+        font-size: 1rem;
+    }    
+
+
+    /******************************************************************
+    15.1.4. MAIN CONTENT LAYOUT STYLES
+    ******************************************************************/
+
+    main {
+        margin: 0;
+    }    
+
+    .post-preview__header,
+    .post-preview__content,
+    .post-preview__footer {
+        max-width: 69ch;
+    }
+
+
+    /******************************************************************
+    15.1.5. SINGLE POST STYLES
+    ******************************************************************/
+
+    .single-post main {
+        align-self: start;
+    }
+
+    .single-post .post__header {    
+        display: flex;
+        flex-flow: column;
+        margin: 0 0 1rem 0;
+        position: relative;
+    }
+
+    .single-post .post__title {
+        margin: 1rem 0;
+        order: 1;
+    }
+
+    .single-post .post__date {
+        order: 0;
+    }
+
+    .single-post .post__date {
+        font-size: var(--size-500); 
+        margin: 0;
+    }
+
+    .single-post .post__header,
+    .single-post .post__content,
+    .single-post .post__footer {
+        max-width: 69ch;
+    }
+
+
+    /******************************************************************
+    15.1.6. PAGE STYLES
+    ******************************************************************/
+    
+    .page main {
+        align-self: start;
+    }
+
+    .page__content {
+        max-width: 69ch;
+    }
+
+    .page__content h1:after {    
+        margin: 0.5rem 0 0 0;
+    }
+
+    
+    /******************************************************************
+    15.1.7. SIDEBAR STYLES
+    ******************************************************************/
+
+    .site-sidebar {
+        flex-flow: row;
+        flex-wrap: wrap;
+        padding: 6vw;
+    }
+
+    .site-sidebar__section {
+        padding: 0 0 0 1.5rem;		
+        width: 50%;
+    }
+
+    .site-sidebar__section:nth-child(odd) {
+        padding: 0 1.5rem 0 0;
+    }
+
+    .site-sidebar__section li {
+        margin-right: 3rem;
+    }
+
+    .site-sidebar__section li:first-child {
+        margin-top: 0;
+    }	
+
+
+    /******************************************************************
+    15.1.8. Z-INDEXES
+    ******************************************************************/
+
+    .header__nav {
+        z-index: 3;
+    }    
+} 
+/* End of 768px Media Query */
+
+
+/* 15.2. Styles for 1024px and larger screen sizes */
+@media only screen and (min-width: 1024px) {
+
+    /******************************************************************
+    15.2.1. TYPOGRAPHY
+    ******************************************************************/
+
+    pre {
+        max-width: 69ch;
+    }
+
+
+    /******************************************************************
+    15.2.2. MAIN LAYOUT STYLES
+    ******************************************************************/
+
+    body {
+        display: grid;
+        grid-template-columns: 3fr 320px;
+        grid-template-areas:
+            "header header"
+            "main sidebar"
+            "pagenavi ..."
+            "footer footer";
+    }
+
+    .site-header {
+        grid-area: header;
+    }
+
+    main {
+        grid-area: main;
+        margin: 0;
+    }
+
+    .site-sidebar {
+        grid-area: sidebar;
+    }
+
+    .site-footer {
+        grid-area: footer;
+    }
+
+
+    /******************************************************************
+    15.2.3. MAIN CONTENT LAYOUT STYLES
+    ******************************************************************/
+
+    .post-preview {
+        position: relative;
+    }
+
+    .post-preview:nth-child(odd):after {
+        background-color: #dddddd; 
+        bottom: 0;
+        content: "";
+        display: block;
+        position: absolute;
+        right: -320px;
+        top: 0;
+        width: 320px;
+    }    
+
+    .post-preview:nth-child(even):after {
+        background:
+        radial-gradient(var(--light-green) 3px, transparent 5px, var(--light-green) 7px, transparent 9px, var(--light-green) 11px, transparent 13px, var(--light-green) 15px, transparent 17px, var(--light-green) 19px, transparent 21px, var(--light-green) 23px, transparent 25px, var(--light-green) 27px, transparent 29px, var(--light-green) 31px, transparent 33px);
+        background-color: var(--green);
+        background-size: 30px 30px;    
+        bottom: 0;
+        content: "";
+        display: block;
+        position: absolute;
+        right: -320px;
+        top: 0;
+        width: 320px;
+    }
+    
+    
+    /******************************************************************
+    15.2.4. SINGLE POST STYLES
+    ******************************************************************/
+
+    .single-post main {
+        margin: 0;
+        padding: 4rem;
+    }
+
+
+    /******************************************************************
+    15.2.5. PAGE STYLES
+    ******************************************************************/
+    
+    .page main {
+        margin: 0;
+        padding: 4rem;
+    }
+    
+    .page__content {
+        padding: 1.5rem;
+    }
+
+    /******************************************************************
+    15.2.6. SIDEBAR STYLES
+    ******************************************************************/
+
+    .site-sidebar {
+        flex-flow: column;
+        margin: 0;
+        padding: 2rem;
+        position: relative;
+    }
+
+    .site-sidebar__section {
+        padding: 0;	
+        width: auto;
+    }
+
+    .site-sidebar__section:nth-child(odd) {
+        padding: 0;
+    }
+    
+    
+    /******************************************************************
+    15.2.7. Z-INDEXES
+    ******************************************************************/
+
+    .post-preview {
+        z-index: 1;
+    }
+
+    .site-sidebar {
+        z-index: 2;
+    }
+
+}
+/* End of 1024px Media Query */
