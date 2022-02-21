@@ -29,7 +29,9 @@ const {title, description, permalink, canonicalURL } = Astro.props;
     <Header />
 
     <main itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/Blog" tabindex=-1>
+      <article class="page__content">
         <slot/>
+      </article>
     </main>
 
     <Sidebar />
