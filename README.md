@@ -1,7 +1,7 @@
 # Kaamos Astro
 Highly Search Engine Optimized Starter Blog for Astro 
 
-## <a href="https://www.kalervoraitanen.com/kaamos" target="_blank">Demo site</a>
+## [Demo site](https://www.kalervoraitanen.com/kaamos)
 
 Kaamos Astro is designed to give a strong semantic and lightweight foundation to a blog. It is highly Search Engine optimized especially for blogs with Schema.org Microdata. It is meant to be used as a starter blog which you can use to develop your own blog.
 
@@ -19,7 +19,7 @@ Kaamos is licensed under <a href="http://sam.zoy.org/wtfpl/" title="Link to WTFP
 
 ## Getting Started
 
-To get started you should have Node and npm installed. After that follow these steps:
+To get started you should have Astro, Node and npm installed. Instructions can be found on <a href="https://docs.astro.build/en/installation/"> Astro's website</a>. After that follow these steps:
 ```
 # Install Dependencies
 
@@ -43,7 +43,8 @@ Start writing new blog posts in Markdown at `src/pages/blog/`
 Kaamos Astro comes with demo themes to showcase what can be done with just CSS and a touch of Vanilla Javascript. All the demos are also WTFPL licensed so you can use them anyway you want. However you are forbidden to hold me liable for anything if you choose to use them.
 
 Demos so far:
-<a href="https://www.kalervoraitanen.com/kaamos" target="_blank">Demo #1</a>
+- [Demo #1](https://www.kalervoraitanen.com/kaamos)
+- [Demo #2](https://www.kalervoraitanen.com/demo2)
 
 Activating a demo is very simple. Below are the instructions how to do it:
 
