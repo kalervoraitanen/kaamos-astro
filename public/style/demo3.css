@@ -1,0 +1,1088 @@
+/*
+Demo: Kaamos Astro - Demo #3
+Demo site: https://www.kalervoraitanen.com/demo3
+Author: Kalervo Raitanen
+Author site: http://www.kalervoraitanen.com
+Description: Minimalist blogging theme for Kaamos Astro Starter Blog. 
+License: WTFPL License. 
+License URI: http://sam.zoy.org/wtfpl/
+*/
+
+
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+# 1. VARIABLES
+# 2. GENERAL STYLES
+# 3. TYPOGRAPHY
+	# 3.1. Font settings
+	# 3.2. Font styles
+    # 3.3. Link styles
+    # 3.4. Paragraph styles
+    # 3.5. Header styles
+    # 3.6. Table styles
+    # 3.7. Definition list styles
+    # 3.8. UL and OL styles
+    # 3.9. Other typographic styles
+# 4. MAIN HEADER STYLES
+# 5. NAVIGATION STYLES
+# 6. MAIN CONTENT LAYOUT STYLES
+# 7. SINGLE POST STYLES
+# 8. PAGE STYLES
+# 9. SIDEBAR STYLES
+# 10. FOOTER STYLES
+# 11. BUTTONS
+# 12. MEDIA QUERIES
+    # 12.1. Styles for 768px and larger screen sizes
+        # 12.1.1. TYPOGRAPHY
+        # 12.1.2. MAIN HEADER STYLES
+        # 12.1.3. NAVIGATION STYLES
+        # 12.1.4. MAIN CONTENT LAYOUT STYLES
+        # 12.1.5. SINGLE POST STYLES
+        # 12.1.6. PAGE STYLES
+        # 12.1.7. SIDEBAR STYLES
+    # 12.2. Styles for 1024px and larger screen sizes
+        # 12.2.1. TYPOGRAPHY
+        # 12.2.2. MAIN LAYOUT STYLES
+        # 12.2.3. MAIN HEADER STYLES
+        # 12.2.4. SIDEBAR STYLES
+--------------------------------------------------------------*/
+
+
+/******************************************************************
+1. VARIABLES
+******************************************************************/
+
+:root {
+    /* Colors */
+    --white: #eeeeee;
+    --black: #222222;
+    --gray: #555555;
+    --light-gray: #cccccc;
+    --orange: #fc6f38;
+    --dark-orange: #ff5410;
+    --dark-blue: #17102b;    
+    --sidebar_bgcolor: #d3d3d3;  
+}
+
+
+/******************************************************************
+2. GENERAL STYLES
+******************************************************************/
+
+html {
+    background: var(--black);
+    background: linear-gradient(135deg, var(--black) 0%,#1e3b51 100%);
+}
+
+/* For Google Chrome */
+html::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+html::-webkit-scrollbar-thumb {
+    background: var(--dark-orange);
+}
+
+html::-webkit-scrollbar-track {
+    background: var(--white);
+}
+
+body {
+    position: relative;
+}
+
+
+/******************************************************************
+3. TYPOGRAPHY
+******************************************************************/
+
+/* # 3.1. Font settings */
+
+/* Fluid typography sizes */
+:root {
+    --size-300: clamp(0.7rem, 0.8rem + 0.2vw, 0.9rem);
+    --size-400: clamp(0.9rem, 0.9rem + 0.24vw, 1rem);
+    --size-500: clamp(1.09rem, 1rem + 0.47vw, 1.33rem);
+    --size-600: clamp(1.37rem, 1.21rem + 0.8vw, 1.78rem);
+    --size-700: clamp(1.71rem, 1.45rem + 1.29vw, 2.37rem);
+    --size-800: clamp(2.14rem, 1.74rem + 1.99vw, 3.16rem);
+    --size-900: clamp(2.67rem, 2.07rem + 3vw, 4.21rem);
+    --size-1000: clamp(3.34rem, 2.45rem + 4.43vw, 5.61rem);
+
+    /* Fonts */
+    --font-heading: Georgia, serif;
+    --font-main: Georgia, serif;
+    --font-button: 'Arial Black', sans-serif;  
+}
+
+
+/* # 3.2. Font styles */
+body {
+    color: var(--white);    
+    font-family: var(--font-main);
+    font-size: 100%;
+    font-weight: 300;    
+    line-height: 1;    
+}
+
+.site-header__desc {
+    font-size: var(--size-600);
+}
+
+.pagination {
+    font-size: var(--size-500);
+}
+
+.site-sidebar__heading {
+    font-family: var(--font-main);
+    font-size: var(--size-600);
+}
+
+.site-sidebar .archives summary {
+    font-size: var(--size-500);
+    font-weight: 700;
+}
+
+.site-sidebar__archives__post-date {
+    font-size: var(--size-300);
+}
+
+.header__nav a {
+    font-family: var(--font-button);
+    font-size: var(--size-600);
+}
+
+.post-preview .post__date{
+    font-size: var(--size-300);
+    font-weight: 700;
+}
+
+
+/* 3.3. Link styles */
+a {
+    color: var(--orange);
+    font-weight: 700;
+    text-decoration: underline;
+}
+
+
+/* 3.4. Paragraph styles */
+p:first-child {
+    margin-top: 0;
+}
+  
+p,
+textarea,
+figcaption {
+    font-size: var(--size-400);
+    line-height: 1.8;
+}
+
+h1 + p,
+h2 + p,
+h3 + p,
+h4 + p,
+h5 + p,
+h6 + p {
+  margin-top: 0;
+}
+
+
+/* # 3.5. Header styles */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  line-height: 1;
+  margin: 0;
+  max-width: 100%;
+}
+
+h1:first-child,
+h2:first-child,
+h3:first-child,
+h4:first-child,
+h5:first-child,
+h6:first-child {
+  padding-top: 0;
+}
+
+h1 {
+  font-size: var(--size-800);
+  padding: 0.8em 0 0.6em 0;
+}
+
+h2 {
+  font-size: var(--size-700);
+  padding: 1em 0 0.6em 0;
+}
+
+h3 {
+  font-size: var(--size-600);
+  padding: 1em 0 0.6em 0;
+}
+
+h4 {
+  font-size: var(--size-500);
+  padding: 1em 0 0.6em 0;
+}
+
+h5 {
+  font-size: var(--size-500);
+  padding: 1em 0 0.6em 0;
+}
+
+h6 {
+  font-size: var(--size-400);
+  padding: 1em 0 0.6em 0;
+}
+
+
+/* # 3.6. Table styles */
+table {
+    border-collapse: collapse;
+}
+
+table tr {
+    border-bottom: 1px solid var(--light-gray);
+}
+
+table tr:first-child {
+    border-top: 1px solid var(--light-gray);
+}
+  
+table th,
+table td {
+    border-left: 1px solid var(--light-gray);
+    border-right: 1px solid var(--light-gray);
+    padding: 0.5em;
+}
+  
+  
+/* # 3.7. Definition list styles */
+dl {
+    line-height: 1.8;
+}
+
+dt {
+    font-weight: 700;
+}
+
+dd {
+    margin: 0.25em 0 1em 1em;
+}
+
+
+/* # 3.8. UL and OL styles */
+ul,
+ol {
+    line-height: 1.5;
+    list-style-position: inside;
+    margin: 1em 0;
+}
+
+li {
+    margin: 0 0 0.5em 0;
+}
+
+li:last-child {
+    margin: 0;
+}
+
+
+/* # 3.9. Other typographic styles */
+hr {
+    color: var(--gray);
+}
+
+dfn,
+cite,
+em,
+i {
+    font-style: italic;
+}
+
+blockquote {
+    background: var(--light-gray);
+    border-left: 6px solid var(--gray);
+    color: var(--black);  
+    font-style: italic;
+    margin: 0;
+    overflow: hidden;
+    quotes: "" "";
+    padding: 1em 1em 1em 2em;
+}
+
+blockquote cite {
+    display: block;
+    font-weight: 700;
+    margin-top: 0.5em;
+}
+
+blockquote:before,
+blockquote:after {
+    content: "";
+}
+
+address {
+    margin: 0 0 1.5em;
+}
+
+pre {
+    margin: 1em 0;
+    max-width: 300px;
+    overflow: auto;
+    padding: 0 0 0 1em;
+}
+
+code,
+kbd,
+tt,
+var {
+    font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+}
+
+code {
+    background: #1b1b1b;
+    color: var(--white);
+    display: block;
+    margin: 1em 0;  
+    padding: 0.5em 1em;
+}
+
+abbr,
+acronym {
+    border-bottom: 1px dotted var(--gray);
+    cursor: help;
+}
+
+mark,
+ins {
+    text-decoration: none;
+}
+
+big {
+    font-size: 125%;
+}
+
+q {
+    quotes: "“" "”" "‘" "
+}
+
+
+/******************************************************************
+4. MAIN HEADER STYLES
+******************************************************************/
+
+.site-header {
+    background: var(--black);	
+	display: grid;
+	grid-template-columns: 50vw 1fr;
+	grid-template-areas:
+      "title nav-btn";
+    padding: 1rem 4vw;
+}
+
+
+.site-header__desc {
+    color: var(--white);
+    font-size: 2.5rem;
+    font-style: italic;
+    left: 6vw;
+    line-height: 1;
+    margin: 0;
+    position: absolute;
+    top: 25vh;  
+}
+
+.single-post .site-header__desc,
+.page .site-header__desc {
+    display: none;
+}
+
+.nav-btn-wrap {
+    align-items: center;
+    display: flex;
+    grid-area: nav-btn;
+    justify-content: flex-end;
+}
+
+
+/******************************************************************
+5. NAVIGATION STYLES
+******************************************************************/
+
+.header__nav {
+	display: none;
+}
+
+.header__nav.active {
+    align-items: center;
+    background: rgba(0,0,0,0.9);
+    bottom: 0;
+    display: grid;
+    justify-content: center;
+    left: 0;
+    overflow-y: scroll;
+    padding: 2rem 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 100;
+}
+
+.primary-menu {
+    list-style-type: none;
+    padding: 0;
+    width: 70vw;
+}
+
+.primary-menu__item {
+    position: relative;
+    padding: 0 0 4px 0;
+}
+
+.primary-menu__item:after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 1px;
+    background: var(--light-gray);
+}
+
+.primary-menu__item:last-child:after {
+    display: none;
+}
+
+.primary-menu__item a {
+    color: var(--white);
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+
+/******************************************************************
+6. MAIN CONTENT LAYOUT STYLES
+******************************************************************/
+
+main {
+    margin: 50vh 4vw 0 4vw;
+}
+
+.post-preview {
+    display: flex;
+    flex-flow: column;
+    padding: 1.5rem;
+}
+
+.post-preview__header {
+    display: flex;
+    flex-flow: column;
+}
+
+.post-preview .post__title {
+    margin: 0;			
+    line-height: 1;
+    padding: 0 0 0.6rem 0;
+    order: 1;
+}
+
+.post__feature-img {
+    margin: 2rem 0;
+    order: 2;
+}
+
+.post-preview .post__date {
+    margin: 0 0 1rem 0;
+    order: 0;
+}
+
+.post-preview a {
+    color: var(--white);
+}
+
+.post-preview:nth-child(odd) {
+    background: var(--dark-blue);
+    color: var(--white);
+}
+
+.post-preview:nth-child(odd) a {
+    color: var(--white);
+}
+
+.post-preview:nth-child(even) {
+    background: var(--orange);
+    color: var(--black);
+}
+
+.post-preview:nth-child(even) a {
+    color: var(--black);
+}
+
+.post-preview__footer {
+    margin: auto 0 0 0;
+}
+
+.post__footer-categories {
+    display: flex;
+    flex-wrap: wrap;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.post__footer-categories li {
+    margin: 0 1rem 0 0;
+}
+
+.post__footer-categories a {
+    padding: 0 0 0 1rem;
+    position: relative;
+}
+
+.post__footer-categories a:before {
+    content: "#";    
+    left: 0;
+    position: absolute;
+}
+
+
+/******************************************************************
+7. SINGLE POST STYLES
+******************************************************************/
+
+.single-post main {
+    background-color: var(--dark-blue);
+    margin: 4rem 4vw;	
+}
+
+.post {
+    padding: 2rem;
+}
+
+.post .post__header {
+    position: relative;
+}
+
+.post .post__date {
+    background-color: var(--black);
+    border: 4px solid var(--dark-blue);
+    left: -3rem;
+    margin: 0;
+    padding: 0.5rem 1rem;
+    position: absolute;		
+    top: 0; 
+}
+
+.post .post__title {
+    padding: 4rem 0 0.3rem 0;
+    margin: 0 0 1rem 0;
+}
+
+.post .post__title:after {
+    background: var(--gray);
+    background: linear-gradient(to right, var(--gray) 0%, transparent 100%);		  		
+    content: "";
+    display: block;
+    height: 1px;
+    margin: 0.75rem 0 0 0;
+    width: 100%;    	
+}
+
+.post .post__footer {
+    margin: 2rem 0 0 0;
+}
+
+
+/******************************************************************
+8. PAGE STYLES
+******************************************************************/
+
+.page main {
+    background-color: var(--orange);
+    color: var(--black);
+    padding: 1.5rem 1rem;
+    margin: 2rem 4vw;
+}
+
+.page__content a {
+    color: var(--white);
+    padding: 0 0 1rem 0;
+}
+
+.page__content h1:after {
+    background: var(--gray);
+    background: linear-gradient(to right, var(--gray) 0%, transparent 100%);		  		
+    content: "";
+    display: block;
+    height: 1px;
+    margin: 0.75rem 0 0 0;
+    width: 100%;    	
+}
+
+
+/******************************************************************
+9. SIDEBAR STYLES
+******************************************************************/
+
+.site-sidebar {
+	background-color: var(--sidebar_bgcolor);	
+	color: var(--black);
+	display: flex;
+	flex-flow: column;
+	grid-area: sidebar;	
+	margin: 4rem 4vw;
+	padding: 1rem;
+}
+
+.site-sidebar__section {
+    padding: 0;
+    margin: 0 0 3rem 0;
+    max-width: 25rem;
+}
+
+.site-sidebar a {
+    color: var(--black);
+}
+
+.site-sidebar ul {
+    margin: 0;
+    padding: 0;
+    list-style-position: inside;
+    list-style-type: disc;    
+}
+
+.site-sidebar li {
+	margin: 0 0 0.5rem 0;
+}
+
+.site-sidebar li:last-child {
+    margin: 0;
+}
+
+.site-sidebar__heading {
+    font-size: 1.5rem;		
+    margin: 0 0 0.25rem 0;
+    padding: 0 0 0.25rem 0;
+}
+
+.site-sidebar__heading:after {
+    background: var(--gray);
+    background: linear-gradient(to right, var(--gray) 0%, transparent 100%);		  		
+    content: "";
+    display: block;
+    height: 1px;
+    margin: 6px 0 0 0;
+    width: 100%;
+}
+
+.site-sidebar .archives details {
+    margin: 0 0 0.5rem 0;
+}
+
+.site-sidebar .archives ul {
+    margin: 0 0 0 1rem;
+}
+
+.site-sidebar__archives__post {
+    margin: 0 0 0.5rem 0;
+}
+
+.site-sidebar__archives__post-date {
+    display: block;
+    padding: 0 0 0 1rem;
+}
+
+
+/******************************************************************
+10. FOOTER STYLES
+******************************************************************/
+
+.site-footer {
+	background-color: var(--black);
+    padding: 1em 4vw;
+}
+
+.site-footer p {
+    color: var(--white);
+    margin: 0;    
+    text-align: center;
+}
+
+
+/******************************************************************
+11. BUTTONS
+******************************************************************/
+
+/* Example button defaults */
+button {
+    background-color: var(--orange);
+    border: none;
+    border-radius: 0;
+    color: var(--white);
+    cursor: pointer;
+    font-family: var(--font-button);
+    letter-spacing: 1px;
+    outline: 0;
+    padding: 0.5em;
+    position: relative;
+    text-decoration: none;
+}
+
+
+/* Example button defaults */
+.nav-button {
+    background: none;
+    border: none;
+    border-radius: 0;    
+    color: var(--white);
+    cursor: pointer;
+    font-family: var(--font-button);
+    letter-spacing: 1px;
+    outline: 0; 
+    padding: 0;
+    position: relative;
+    text-transform: uppercase;
+    top: 10px;
+    z-index: 110;
+}
+
+.nav-button:before {
+    background: var(--white);    
+    content: "";
+    display: block;
+    height: 4px;
+    left: 50%;
+    margin: 0 0 0 -20px;
+    position: absolute; 
+    top: -10px;      
+    transition: all .3s ease-out;
+    width: 40px;     
+}
+    
+.nav-button:after {
+    background: var(--white);     
+    content: "";
+    display: block;     
+    height: 4px;
+    left: 50%;
+    margin: 0 0 0 -20px;
+    position: absolute;
+    top: -20px;    
+    transition: all .3s ease-out;
+    width: 40px;     
+}
+
+.nav-button.close {
+    color: red;
+}
+  
+.nav-button.close:before {
+    background: red;
+    margin: 0 0 0 -13px;
+    top: -15px;        
+    transform: rotate(45deg); 
+    width: 25px; 
+}
+  
+.nav-button.close:after {
+    background: red;
+    margin: 0 0 0 -13px;
+    top: -15px;        
+    transform: rotate(-45deg); 
+    width: 25px; 
+}
+  
+
+/* Read More Button */
+.read-more {
+    background-color: var(--white) !important;
+    border: none;
+    box-sizing: border-box;
+    color: var(--black) !important;
+    cursor: pointer;
+    display: inline-block;
+    font-family: var(--font-button);
+    margin: 0 0 1rem 0;
+    outline: 0;
+    padding: 0.5em;
+    position: relative;
+    text-decoration: none;
+    transition: all 0.5s ease-out;
+}
+
+
+/******************************************************************
+12. MEDIA QUERIES
+******************************************************************/
+
+/* 12.1. Styles for 768px and larger screen sizes */
+@media only screen and (min-width: 768px) {
+
+    /******************************************************************
+    12.1.1. TYPOGRAPHY
+    ******************************************************************/
+
+    pre {
+        max-width: 480px;
+    }
+
+
+    /******************************************************************
+    12.1.2. MAIN HEADER STYLES
+    ******************************************************************/
+
+    .site-header {
+        align-items: center;	
+        display: grid;
+        grid-template-columns: 1fr 3fr;
+        grid-template-areas:
+        "title nav";
+        padding: 1rem 4vw;  
+    }
+
+    .site-header__desc {
+        max-width: 50vw;
+    }  
+
+
+    /******************************************************************
+    12.1.3. NAVIGATION STYLES
+    ******************************************************************/
+
+    .nav-button {
+        display: none;
+    }
+
+    .header__nav {
+        display: block;
+        position: static;
+        grid-area: nav;
+        padding: 0 0 0 4rem;
+    }
+
+    .primary-menu {
+        background-color: transparent;
+        box-shadow: none;
+        height: auto; 		
+        list-style: none;
+        margin: 0;
+        overflow-y: unset;		
+        padding: 0;
+        position: relative;
+        text-align: center;
+        transform: translateX(0);
+        transition: none;
+        width: 100%;
+    }
+
+    .primary-menu__item {
+        display: inline-block;
+        margin: 0 1rem 0 0;
+        padding: 0;			
+    }
+    
+    .primary-menu__item:after {
+        background: none;
+        background-color: var(--white);    		
+        content: "";
+        display: block;
+        height: 2px;
+        margin: 0 auto;
+        transition: width 0.5s ease;
+        width: 0;	    	
+    }
+
+    .primary-menu__item:hover:after {
+        width: 100%;
+    }
+
+    .header__nav a  {
+        font-size: 1rem;
+    }    
+
+
+    /******************************************************************
+    12.1.4. MAIN CONTENT LAYOUT STYLES
+    ******************************************************************/
+
+    main {
+        align-self: start;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        margin: 50vh 0 0 0;
+    }
+
+    .post-preview {
+        background-color: var(--dark-blue);
+        color: var(--white);
+        padding: 4vw;
+    }
+
+    .post-preview__header,
+    .post-preview__content,
+    .post-preview__footer {
+        max-width: 69ch;
+    }
+
+    .post-preview a {
+        color: var(--white);
+    }
+
+    .post-preview:nth-child(odd),
+    .post-preview:nth-child(odd) a,
+    .post-preview:nth-child(even),
+    .post-preview:nth-child(even) a {
+        color: unset;
+    } 
+
+    .post-preview:nth-child(even) {
+        background-color: var(--dark-blue);
+        color: var(--white);
+    }
+
+    .post-preview:nth-child(4n+2),
+    .post-preview:nth-child(4n+3),
+    .post-preview:nth-child(2),
+    .post-preview:nth-child(3) {
+        background-color: var(--orange);
+        color: black;
+    }
+
+    .post-preview:nth-child(4n+2) a,
+    .post-preview:nth-child(4n+3) a,
+    .post-preview:nth-child(2) a,
+    .post-preview:nth-child(3) a {
+        background-color: var(--orange);
+        color: black;
+    }
+    
+
+    /******************************************************************
+    12.1.5. SINGLE POST STYLES
+    ******************************************************************/
+
+    .single-post main {
+        display: block;
+        margin: 2rem 4vw;
+    }
+
+    .post {
+        max-width: 69ch;
+        padding: 2rem;
+    }
+
+
+    /******************************************************************
+    12.1.6. PAGE STYLES
+    ******************************************************************/
+    
+    .page main {
+        display: block;
+        margin: 2rem 4vw;
+    }
+
+    .page .page__content {
+        max-width: 69ch;
+        padding: 2rem;
+    }
+
+
+    /******************************************************************
+    12.1.7. SIDEBAR STYLES
+    ******************************************************************/
+
+    .site-sidebar {
+        flex-flow: row;
+        flex-wrap: wrap;
+        padding: 1rem;
+    }
+
+    .site-sidebar__section {
+        padding: 0 0 0 1.5rem;		
+        width: 50%;
+    }
+
+    .site-sidebar__section li:first-child {
+        margin-top: 0;
+    }	
+
+}
+/* End of 768px Media Query */
+
+
+/* 16.2. Styles for 1024px and larger screen sizes */
+@media only screen and (min-width: 1024px) {
+
+    /******************************************************************
+    12.2.1. TYPOGRAPHY
+    ******************************************************************/
+
+    pre {
+        max-width: 75ch;
+    }
+
+
+    /******************************************************************
+    12.2.2. MAIN LAYOUT STYLES
+    ******************************************************************/
+
+    body {
+        display: grid;
+        grid-template-columns: 1fr 320px;
+        grid-template-areas:
+            "header header"
+            "main sidebar"
+            "footer footer";
+    }
+
+    .site-header {
+        grid-area: header;
+    }
+
+    main {
+        grid-area: main;
+    }
+
+    .site-sidebar {
+        grid-area: sidebar;
+    }
+
+    .site-footer {
+        grid-area: footer;
+    }
+
+
+    /******************************************************************
+    12.2.3. MAIN HEADER STYLES
+    ******************************************************************/
+
+    .site-header__desc {
+        max-width: 40vw;
+        left: 10vw;
+    }
+
+    /******************************************************************
+    12.2.4. SIDEBAR STYLES
+    ******************************************************************/
+
+    .site-sidebar {
+        align-self: stretch;
+        flex-flow: column;
+        margin: 0;
+        padding: 4rem 2rem;        
+    }
+
+    .site-sidebar__section {
+        padding: 0;	
+        width: auto;
+    }
+
+}
+/* End of 1024px Media Query */
