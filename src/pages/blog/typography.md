@@ -2,7 +2,7 @@
 setup: |
   import Layout from '../../layouts/BlogPostLayout.astro';
 title: Typography
-description: This is an example blog post
+description: This is an example post to show typographic styles.
 publishDate: Saturday, July 31 2021
 permalink: https://my-site.dev/blog/example-blog
 heroImage: "/assets/blog/typography/typography-calligraphy-work.jpg"
