@@ -1,5 +1,7 @@
 # Kaamos Astro
-Highly Search Engine Optimized Starter Blog for Astro 
+Highly Search Engine Optimized Starter Blog for Astro
+
+<img src="https://www.kalervoraitanen.com/kaamos/assets/kaamos-ascii.png" alt="Kaamos Astro ASCII logo" />
 
 ## [Demo site](https://www.kalervoraitanen.com/kaamos)
 
@@ -45,6 +47,7 @@ Kaamos Astro comes with demo themes to showcase what can be done with just CSS a
 Demos so far:
 - [Demo #1](https://www.kalervoraitanen.com/kaamos)
 - [Demo #2](https://www.kalervoraitanen.com/demo2)
+- [Demo #3](https://www.kalervoraitanen.com/demo3)
 
 Activating a demo is very simple. Below are the instructions how to do it:
 
