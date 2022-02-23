@@ -3,7 +3,7 @@ setup: |
   import Layout from '../../layouts/BlogPostLayout.astro';
 title: Say Hello to Kaamos!
 description: Kaamos is a lightweight Astro Starter Theme with timeless black & white design. It is built using the best Search Engine Optimization (SEO) practices. Search Engines will love it.
-publishDate: Monday, February 21 2022
+publishDate: Monday, February 22 2022
 permalink: https://my-site.dev/blog/say-hello-to-kaamos
 heroImage: "/assets/blog/say-hello-to-kaamos/kaamos-hero-image.jpg"
 alt: Aurora borealis in the sky.
