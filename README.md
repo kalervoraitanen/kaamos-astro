@@ -48,6 +48,8 @@ Demos so far:
 - [Demo #1](https://www.kalervoraitanen.com/kaamos)
 - [Demo #2](https://www.kalervoraitanen.com/demo2)
 - [Demo #3](https://www.kalervoraitanen.com/demo3)
+- [Demo #4](https://www.kalervoraitanen.com/demo4)
+
 
 Activating a demo is very simple. Below are the instructions how to do it:
 
