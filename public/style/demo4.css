@@ -1,0 +1,1014 @@
+/*
+Demo: Kaamos Astro - Demo #4
+Demo site: https://www.kalervoraitanen.com/demo4
+Author: Kalervo Raitanen
+Author site: http://www.kalervoraitanen.com
+Description: Fresh blogging theme for Kaamos Astro Starter Blog. 
+License: WTFPL License. 
+License URI: http://sam.zoy.org/wtfpl/
+*/
+
+
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+# 1. VARIABLES
+# 2. GENERAL STYLES
+# 3. TYPOGRAPHY
+	# 3.1. Font settings
+	# 3.2. Font styles
+    # 3.3. Paragraph styles
+    # 3.4. Link styles
+    # 3.5. Header styles
+    # 3.6. Table styles
+    # 3.7. Definiton list styles
+    # 3.8. UL and OL styles
+    # 3.9. Other typographic styles
+# 4. MAIN HEADER STYLES
+# 5. NAVIGATION STYLES
+# 6. MAIN CONTENT LAYOUT STYLES
+# 7. SINGLE POST STYLES
+# 8. PAGE STYLES
+# 9. SIDEBAR STYLES
+# 10. POST THUMBNAIL STYLES
+# 11. FOOTER STYLES
+# 12. BUTTONS
+# 13. MEDIA QUERIES
+    # 13.1 Styles for 768px and larger screen sizes
+        # 13.1.1. TYPOGRAPHY
+        # 13.1.2. MAIN HEADER STYLES
+        # 13.1.3. NAVIGATION STYLES
+        # 13.1.4. MAIN CONTENT LAYOUT STYLES
+        # 13.1.5. SINGLE POST STYLES
+        # 13.1.6. PAGE STYLES
+        # 13.1.7. SIDEBAR STYLES
+    # 13.2. Styles for 1024px and larger screen sizes
+        # 13.2.1. TYPOGRAPHY
+        # 13.2.2. MAIN LAYOUT STYLES
+        # 13.2.3. SIDEBAR STYLES
+--------------------------------------------------------------*/
+
+
+/******************************************************************
+1. VARIABLES
+******************************************************************/
+
+:root {
+    /* Colors */
+    --site_text_color: #222222;
+    --site_bg_color: #eeeeee;
+    --posts_bgcolor: #faecc9;
+    --sidebar_bgcolor: #D2E4D8;
+    --footer_bgcolor: #CB7E54;
+    --button_bgcolor: #344F59;
+    --button_color: #eeeeee;
+    --link_color: #344F59;
+    --gray: #555555;
+    --light-gray: #cccccc;
+}
+
+
+/******************************************************************
+2. GENERAL STYLES
+******************************************************************/
+
+html {
+    background-color: var(--site_bg_color);
+}
+
+html::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+html::-webkit-scrollbar-thumb {
+    background: var(--footer_bgcolor);
+}
+
+html::-webkit-scrollbar-track {
+    background: var(--white);
+}
+
+
+/******************************************************************
+3. TYPOGRAPHY
+******************************************************************/
+
+/* # 3.1. Font settings */
+
+/* Fluid typography sizes */
+:root {
+    --size-300: clamp(0.7rem, 0.8rem + 0.2vw, 0.9rem);
+    --size-400: clamp(0.9rem, 0.9rem + 0.24vw, 1rem);
+    --size-500: clamp(1.09rem, 1rem + 0.47vw, 1.33rem);
+    --size-600: clamp(1.37rem, 1.21rem + 0.8vw, 1.78rem);
+    --size-700: clamp(1.71rem, 1.45rem + 1.29vw, 2.37rem);
+    --size-800: clamp(2.14rem, 1.74rem + 1.99vw, 3.16rem);
+    --size-900: clamp(2.67rem, 2.07rem + 3vw, 4.21rem);
+    --size-1000: clamp(3.34rem, 2.45rem + 4.43vw, 5.61rem);
+
+    /* Fonts */
+    --font-main: Georgia, serif;
+    --font-heading: "Playball", Georgia, serif;
+    --font-button: "Arimo", Helvetica, Arial, sans-serif;
+}
+
+
+/* # 3.2. Font styles */
+body {
+    color: var(--site_text_color);
+    font-family: var(--font-main);
+    font-size: 100%;
+}
+
+
+/* 3.3. Paragraph styles */
+p,
+textarea,
+figcaption {
+    font-size: var(--size-400);
+    line-height: 1.5;
+}
+
+h1 + p,
+h2 + p,
+h3 + p,
+h4 + p,
+h5 + p,
+h6 + p {
+  margin-top: 0;
+}
+
+
+/* 3.4. Link styles */
+a {
+    color: var(--link_color);
+}
+
+
+/* # 3.5. Header styles */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+  line-height: 1;
+  margin: 0;
+  max-width: 100%;
+}
+
+h1:first-child,
+h2:first-child,
+h3:first-child,
+h4:first-child,
+h5:first-child,
+h6:first-child {
+  padding-top: 0;
+}
+
+h1 {
+  font-size: var(--size-800);
+  padding: 0.8em 0 0.6em 0;
+}
+
+h2 {
+  font-size: var(--size-700);
+  padding: 1em 0 0.6em 0;
+}
+
+h3 {
+  font-size: var(--size-600);
+  padding: 1em 0 0.6em 0;
+}
+
+h4 {
+  font-size: var(--size-500);
+  padding: 1em 0 0.6em 0;
+}
+
+h5 {
+  font-size: var(--size-500);
+  padding: 1em 0 0.6em 0;
+}
+
+h6 {
+  font-size: var(--size-400);
+  padding: 1em 0 0.6em 0;
+}
+
+
+/* 3.6. Table styles */
+table {
+    border-collapse: collapse;
+}
+
+table tr {
+      border-bottom: 1px solid var(--light-gray);
+}
+
+table tr:first-child {
+    border-top: 1px solid var(--light-gray);
+}
+  
+table th,
+table td {
+    padding: 0.5rem;
+    border-left: 1px solid var(--light-gray);
+    border-right: 1px solid var(--light-gray);
+}
+  
+  
+/* 3.7. Definiton list styles */
+dl {
+    line-height: 1.8;
+}
+
+dt {
+    font-weight: bold;
+}
+
+dd {
+    margin: 0.25rem 0 1rem 1rem;
+}
+
+
+/* 3.8. UL and OL styles */
+ul,
+ol {
+    line-height: 1.5;
+    list-style-position: inside;
+    margin: 1rem 0;
+}
+
+li {
+    margin: 0 0 0.5rem 0;
+}
+
+li:last-child {
+    margin: 0;
+}
+
+ul,
+ol {
+    margin: 0.5rem 0 0 1rem;
+}
+
+
+/* 3.9. Other typographic styles */
+hr {
+    color: var(--gray);
+}
+
+dfn,
+cite,
+em,
+i {
+    font-style: italic;
+}
+
+blockquote {
+    background: var(--light-gray);
+    border-left: 6px solid var(--footer_bgcolor);    
+    font-style: italic;
+    margin: 0;
+    overflow: hidden;
+    quotes: "" "";
+    padding: 1rem 1rem 1rem 2rem;
+}
+
+blockquote cite {
+    display: block;
+    font-weight: bold;
+    margin-top: 0.5rem;
+}
+
+blockquote:before,
+blockquote:after {
+    content: "";
+}
+
+address {
+    margin: 0 0 1.5rem;
+}
+
+pre {
+    margin: 1rem 0;
+    max-width: 300px;
+    overflow: auto;
+    padding: 0 0 0 1rem;
+}
+
+code,
+kbd,
+tt,
+var {
+    font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+}
+
+code {
+    background: #1b1b1b;
+    color: var(--site_bg_color);
+    display: block;
+    margin: 1rem 0;  
+    padding: 0.5rem 1rem;
+}
+
+abbr,
+acronym {
+    border-bottom: 1px dotted var(--gray);
+    cursor: help;
+}
+
+mark,
+ins {
+    text-decoration: none;
+}
+
+big {
+    font-size: 125%;
+}
+
+q {
+    quotes: "“" "”" "‘" "’";
+}
+
+
+/******************************************************************
+4. MAIN HEADER STYLES
+******************************************************************/
+
+.site-header {
+	box-shadow: 1px 1px 8px rgba(0,0,0,0.5);	
+	display: grid;
+	grid-template-columns: 6fr 2fr;
+	grid-template-areas:
+      "title nav-btn"
+      "desc ....";
+    padding: 1rem 3vw;
+}
+
+.site-title {
+    grid-area: title;
+    margin: 0;
+    padding: 0;
+    line-height: 1;
+}
+
+.site-header__logo-img {
+    background: #111111;
+    height: 48px;
+    margin: 16px 0;
+    padding: 8px;
+    position: relative;
+    text-align: center;
+    width: auto;
+}
+
+.site-header__desc {
+    align-items: center;
+    color: var(--gray);
+    display: flex;
+    font-style: italic;
+    font-weight: 700;
+    grid-area: desc;
+    line-height: 1;
+    margin: 0;    
+}
+
+.nav-btn-wrap {
+    align-items: center;
+    display: flex;
+    grid-area: nav-btn;
+    justify-content: flex-end;
+}
+
+
+/******************************************************************
+5. NAVIGATION STYLES
+******************************************************************/
+
+.header__nav {
+	transition: all 1s ease;
+}
+
+#primary-menu-list {
+    background-color: var(--site_bg_color);
+    box-shadow: 1px 1px 8px rgba(0,0,0,0.5);
+    display: block;
+    height: 100vh;
+    left: 0;
+    list-style-type: none;
+    margin: 0;
+    overflow-y: scroll;
+    padding: 4rem 2rem 2rem 1rem;
+    position: fixed;
+    top: 0;
+    transform: translateX(-60vw);
+    transition: all 0.5s ease;
+    width: 60vw;
+    z-index: 30;
+}
+
+.header__nav.active #primary-menu-list {
+    transform: translateX(0);
+}	
+
+.primary-menu__item {
+    margin: 0 0 0.5rem 0;
+    padding: 0 0 0.5rem 0;
+}
+
+.primary-menu__item:last-child {
+    margin: 0;
+}
+
+.primary-menu__item:after {
+    background: var(--gray);
+    background: linear-gradient(to right, var(--gray) 0%, transparent 100%);		  		
+    content: "";
+    display: block;
+    height: 1px;
+    margin: 6px 0 0 0;
+    width: 100%;    	
+}
+
+.header__nav a {
+    color: var(--site_text_color);
+    font-family: var(--font-button);
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+
+/******************************************************************
+6. MAIN CONTENT LAYOUT STYLES
+******************************************************************/
+
+main {
+    margin: 2rem 3vw;
+}
+
+.post-preview {
+    background-color: var(--posts_bgcolor);
+    border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+    margin: 0 0 2rem 0;
+    padding: 1.5rem;
+}
+
+.post-preview .post__title {
+    font-size: 2.5rem;
+    margin: 0;			
+    padding: 0;
+    line-height: 1;
+}
+
+.post-preview .post__date {
+    font-size: var(--size-300);
+    font-weight: 700;
+    margin: 0.5rem 0 0 0;
+}
+
+.post-preview__footer {
+    margin: 2rem 0 0 0;
+}
+
+.post__footer-categories {
+    display: flex;
+    flex-wrap: wrap;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.post__footer-categories li {
+    margin: 0 1rem 0 0;
+}
+
+.post__footer-categories a {
+    padding: 0 0 0 1rem;
+    position: relative;
+}
+
+.post__footer-categories a:before {
+    content: "#";    
+    left: 0;
+    position: absolute;
+}
+
+
+/******************************************************************
+7. SINGLE POST STYLES
+******************************************************************/
+
+.single-post main {
+    align-self: start;
+    background-color: var(--posts_bgcolor);
+    border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+    padding: 1.5rem 1rem;
+    margin: 2rem 3vw;	
+}
+
+.post {
+    padding: 0 0 1rem 0;
+    position: relative;		
+}
+
+.post .post__date  {
+    background-color: var(--footer_bgcolor);
+    font-weight: 700;
+    left: -1.5rem;
+    margin: 0;
+    padding: 0.5rem 1rem;
+    position: absolute;		
+    top: 0; 
+}
+
+.post .post__title {
+    padding: 3rem 0 0.3rem 0;
+    margin: 0 0 1rem 0;
+}
+
+.post .post__title:after {
+    background: var(--gray);
+    background: linear-gradient(to right, var(--gray) 0%, var(--site_bg_color) 100%);		  		
+    content: "";
+    display: block;
+    height: 1px;
+    width: 100%;    	
+}
+
+.post .post__footer {
+    margin: 2rem 0 0 0;
+}
+
+
+/******************************************************************
+8. PAGE STYLES
+******************************************************************/
+
+.page main {
+    align-self: start;
+    background-color: var(--posts_bgcolor);
+    border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+    padding: 1.5rem 1rem;
+    margin: 2rem 3vw;
+}
+
+.page__content {
+    padding: 0 0 1rem 0;
+}	
+
+.page__content h1:after {
+    background: var(--gray);
+    background: linear-gradient(to right, var(--gray) 0%, var(--site_bg_color) 100%);		  		
+    content: "";
+    display: block;
+    height: 1px;
+    margin: 0.75rem 0 0 0;
+    width: 100%;    	
+}
+
+
+/******************************************************************
+9. SIDEBAR STYLES
+******************************************************************/
+
+.site-sidebar {
+	align-self: start;	
+	background-color: var(--sidebar_bgcolor);	
+	border-radius: 2px;
+	color: var(--site_text_color);
+	display: flex;
+	flex-flow: column;
+	grid-area: sidebar;	
+	margin: 0 16px 32px 16px;
+	padding: 16px;
+}
+
+.site-sidebar__section {
+    padding: 0;
+    margin: 0 0 48px 0;
+    max-width: 25rem;
+}
+
+.site-sidebar a {
+    color: var(--site_text_color);
+}
+
+.site-sidebar ul {
+    margin: 0;
+    padding: 0;
+    list-style-position: inside;
+    list-style-type: disc;
+}
+
+.site-sidebar li {
+	margin: 0 0 0.5rem 0;
+}
+
+.site-sidebar li:last-child {
+    margin: 0;
+}
+
+.site-sidebar__heading {
+    font-size: 1.5rem;		
+    margin: 0 0 0.25rem 0;
+    padding: 0 0 0.25rem 0;
+}
+
+.site-sidebar__heading {
+    font-size: 2rem;		
+    margin: 0 0 8px 0;
+    padding: 0 0 8px 0;
+}
+
+.site-sidebar__heading:after {
+    background: var(--gray);
+    background: linear-gradient(to right, var(--gray) 0%, transparent 100%);		  		
+    content: "";
+    display: block;
+    height: 1px;
+    margin: 6px 0 0 0;
+    width: 100%;
+}
+
+.site-sidebar .archives details {
+    margin: 0 0 0.5rem 0;
+}
+
+.site-sidebar__archives__year {
+    font-size: var(--size-500);
+    font-weight: 700;
+}
+
+.site-sidebar .archives ul {
+    margin: 0 0 0 1rem;
+}
+
+.site-sidebar__archives__post {
+    font-weight: 700;
+    margin: 0 0 0.5rem 0;
+}
+
+.site-sidebar__archives__post-date {
+    display: block;
+    font-size: var(--size-300);
+    font-weight: 400;
+    padding: 0 0 0 1rem;
+}
+
+
+/******************************************************************
+10. POST THUMBNAIL STYLES
+******************************************************************/
+
+.post__feature-img {
+    background: linear-gradient(#344F59, #648C8C);		
+    border-radius: 0 160px 160px 160px;
+    height: auto;
+    margin: 1rem 0;		
+    max-width: 100%;
+    padding: 5px;
+}
+
+
+/******************************************************************
+11. FOOTER STYLES
+******************************************************************/
+
+.site-footer {
+	background-color: var(--footer_bgcolor);
+    padding: 1rem 3vw;
+}
+
+.site-footer p {
+    text-align: center;
+    margin: 0;
+}
+
+
+/******************************************************************
+12. BUTTONS
+******************************************************************/
+
+/* Example button defaults */
+button {
+    background-color: var(--button_bgcolor);
+    border: none;
+    border-radius: 0;
+    color: var(--button_color);
+    cursor: pointer;
+    font-family: var(--font-button);
+    letter-spacing: 1px;
+    outline: 0;
+    padding: 0.5rem;
+    position: relative;
+    text-decoration: none;
+}
+
+
+/* Example button defaults */
+.nav-button {
+    background: none;
+    border: none;
+    border-radius: 0;    
+    color: var(--site_text_color);
+    cursor: pointer;
+    font-family: var(--font-button);
+    letter-spacing: 1px;
+    outline: 0; 
+    padding: 0;
+    position: relative;
+    text-transform: uppercase;
+    top: 10px;  
+}
+
+.nav-button:before {
+    background: var(--site_text_color);    
+    content: "";
+    display: block;
+    height: 4px;
+    left: 50%;
+    margin: 0 0 0 -20px;
+    position: absolute; 
+    top: -10px;      
+    transition: all .3s ease-out;
+    width: 40px;     
+}
+    
+.nav-button:after {
+    background: var(--site_text_color);     
+    content: "";
+    display: block;     
+    height: 4px;
+    left: 50%;
+    margin: 0 0 0 -20px;
+    position: absolute;
+    top: -20px;    
+    transition: all .3s ease-out;
+    width: 40px;     
+}
+
+  
+.nav-button.close:before {
+    background: red;
+    margin: 0 0 0 -13px;
+    top: -15px;        
+    transform: rotate(45deg); 
+    width: 25px; 
+}
+  
+.nav-button.close:after {
+    background: red;
+    margin: 0 0 0 -13px;
+    top: -15px;        
+    transform: rotate(-45deg); 
+    width: 25px; 
+}
+  
+
+/* Read More Button */
+.read-more {
+    background-color: var(--button_bgcolor);
+    border: none;
+	border-radius: 1px 0.5rem 1px 0.5rem;
+    box-sizing: border-box;
+    color: var(--button_color);
+    cursor: pointer;
+    display: inline-block;
+    font-family: var(--font-button);
+    letter-spacing: 1px;
+    outline: 0;
+    padding: 0.5rem;
+    position: relative;
+    text-decoration: none;
+}
+
+/* End of base styles */
+
+
+/******************************************************************
+13. MEDIA QUERIES
+******************************************************************/
+
+/* 13.1 Styles for 768px and larger screen sizes */
+@media only screen and (min-width: 768px) {
+
+    /******************************************************************
+    13.1.1. TYPOGRAPHY
+    ******************************************************************/
+
+    pre {
+        max-width: 480px;
+    }
+
+
+    /******************************************************************
+    13.1.2. MAIN HEADER STYLES
+    ******************************************************************/
+
+    .site-header {
+        align-items: center;	
+        display: grid;
+        grid-template-columns: 2fr 3fr;
+        grid-template-areas:
+        "title nav"
+        "desc ...";
+        padding: 1rem 3vw;  
+    }
+
+
+    /******************************************************************
+    13.1.3. NAVIGATION STYLES
+    ******************************************************************/
+
+    .nav-button {
+        display: none;
+    }
+
+    .header__nav {
+        grid-area: nav;
+    }
+
+    #primary-menu-list {
+        background-color: transparent;
+        box-shadow: none;
+        height: auto; 		
+        list-style: none;
+        margin: 0;
+        overflow-y: unset;		
+        padding: 0;
+        position: relative;
+        text-align: center;
+        transform: translateX(0);
+        transition: none;
+        width: 100%;
+    }
+
+    .primary-menu__item {
+        display: inline-block;
+        margin: 0 1rem 0 0;
+        padding: 0;			
+    }
+
+    .primary-menu__item:after {
+        background: none;
+        background-color: var(--site_text_color);    		
+        content: "";
+        display: block;
+        height: 2px;
+        margin: 0;
+        transition: width 0.5s ease;
+        width: 0;	    	
+    }
+
+    .primary-menu__item:hover:after {
+        width: 100%;
+    }
+
+
+    /******************************************************************
+    13.1.4. MAIN CONTENT LAYOUT STYLES
+    ******************************************************************/
+
+    main {
+        align-self: start;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(Min(20em, 100%), 1fr));
+        grid-template-rows: masonry;
+        grid-gap: 3vw;
+        justify-content: center;
+        margin: 2rem 3vw;
+    }
+
+    .post-preview {
+        align-self: start;
+        margin: 0;
+    }
+
+
+    /******************************************************************
+    13.1.5. SINGLE POST STYLES
+    ******************************************************************/
+
+    .single-post main {
+        padding: 2rem;
+    }
+
+    .post {
+        max-width: 69ch;
+    }
+
+    .post .post__date {
+        left: -2.5rem;
+    }
+
+
+    /******************************************************************
+    13.1.6. PAGE STYLES
+    ******************************************************************/
+
+    .page main {
+        padding: 2rem;
+    }
+    
+    .page__content {
+        max-width: 69ch;
+    }
+
+
+    /******************************************************************
+    13.1.7. SIDEBAR STYLES
+    ******************************************************************/
+
+    .site-sidebar {
+        flex-flow: row;
+        flex-wrap: wrap;
+        padding: 1rem;
+    }
+
+    .site-sidebar__section {
+        padding: 0 0 0 1.5rem;		
+        width: 50%;
+    }
+
+    .site-sidebar__section:nth-child(odd) {
+        padding: 0 1.5rem 0 0;
+    }
+
+    .site-sidebar__section > li {
+        margin-right: 3rem;
+    }
+
+    .site-sidebar__section > li:first-child {
+        margin-top: 0;
+    }	
+
+}
+/* End of 768px Media Query */
+
+
+/* 13.2. Styles for 1024px and larger screen sizes */
+@media only screen and (min-width: 1024px) {
+
+    /******************************************************************
+    13.2.1. TYPOGRAPHY
+    ******************************************************************/
+
+    pre {
+        max-width: 69ch;
+    }
+
+
+    /******************************************************************
+    13.2.2. MAIN LAYOUT STYLES
+    ******************************************************************/
+
+    body {
+        display: grid;
+        grid-template-columns: 3fr 1fr;
+        grid-template-areas:
+            "header header"
+            "main sidebar"
+            "footer footer";
+    }
+
+    .site-header {
+        grid-area: header;
+    }
+
+    main {
+        grid-area: main;
+    }
+
+    .site-sidebar {
+        grid-area: sidebar;
+    }
+
+    .site-footer {
+        grid-area: footer;
+    }
+
+
+    /******************************************************************
+    13.2.3. SIDEBAR STYLES
+    ******************************************************************/
+
+    .site-sidebar {
+        flex-flow: column;
+        margin: 2rem 3vw 0 0;
+    }
+
+    .site-sidebar__section {
+        padding: 0;	
+        width: auto;
+    }
+
+    .site-sidebar__section:nth-child(odd) {
+        padding: 0;
+    }
+
+}
+/* End of 1024px Media Query */
